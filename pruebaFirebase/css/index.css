@@ -1,0 +1,16 @@
+body{
+}
+
+body *
+{
+		font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.color-itam
+{
+	background-color: #006853 !important;
+}
+.border-itam
+{
+	border-color: #09553B !important;
+}
