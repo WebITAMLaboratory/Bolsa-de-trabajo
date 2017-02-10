@@ -57,25 +57,33 @@ function registerAlumno(email,password){
 
 //ON LOGIN OR LOGOUT
 firebase.auth().onAuthStateChanged(function(user) {
-  if (user)
-  {	
-  	if ((window.location.href).includes("index.html"))
-  	{
-		const location = (window.location.href).replace("/index.html","");
-	    window.location.replace(location + "/html/mainAlumno.html");
-  	}
-  	
-  } 
-  else 
-  {
-    console.log("No User, Please Login or Register");
-    if (!(window.location.href).includes("index.html"))
-  	{
-    		const location = (window.location.href);
-			const last = (window.location.href).lastIndexOf("/html");
-    		window.location.replace(location.substr(0,last) + "/index.html");
-	}  
-  }
+	  if (user)
+	  {	
+	  	if ((window.location.href).includes("index.html"))
+	  	{
+			const location = (window.location.href).replace("/index.html","");
+		    window.location.replace(location + "/html/mainAlumno.html");
+	  	}
+	  	if ((window.location.href).includes("empresa.html"))
+	  	{
+			const location = (window.location.href).replace("/empresa.html","");
+		    window.location.replace(location + "/mainEmpresa.html");
+	  	}
+	  	
+	  } 
+	  else 
+	  {
+	  	if ((window.location.href).includes("mainAlumno.html"))
+	  	{
+			const location = (window.location.href).replace("/html/mainAlumno.html","");
+		    window.location.replace(location + "/index.html");
+	  	}
+	  	if ((window.location.href).includes("/mainEmpresa.html"))
+	  	{
+			const location = (window.location.href).replace("/mainEmpresa.html","");
+		    window.location.replace(location + "/empresa.html");
+	  	}	     
+	  }
 });
 
 function signOut(){

@@ -40,5 +40,4 @@ btnLogin.addEventListener("click", function(){
 	const password = txtPasswordLogin.value;
 	console.log("Trying to Login");
 	loginAlumno( email, password);
-	
 });
