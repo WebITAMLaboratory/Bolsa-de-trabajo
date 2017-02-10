@@ -3,10 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Prueba Firebase</title>
-	<meta name="description" content="Prueba sobre el uso de la aplicación firebase">
+	<title>Prácticas 2017</title>
+	<meta name="description" content="Prácticas de Verano 2017 ITAM">
 	<meta name="robots" content="index, follow">
-	<meta name="author" content="Emiliano Sotomayor(uboat46)">
+	<meta name="author" content="WIL(EMILIANO SOTOMAYOR AKA uboat46, VICTOR OSORNIO AKA Tech)">
+
+	<!--OG-->
+	<meta property="og:type" content="business.business">
+	<meta property="og:title" content="Prácticas de Verano 2017 ITAM">
+	<meta property="og:url" content="http://practicasdeverano.itam.mx">
+	<meta property="og:image" content="http://practicasdeverano.itam.mx/img/VectPPPV17.png">
+	<meta content="image/png" property="og:image:type" />
+	<meta content="400" property="og:image:width" />
+	<meta content="300" property="og:image:height" />
+	<meta property="business:contact_data:street_address" content="Río Hondo #1,Col. Progreso Tizapán">
+	<meta property="business:contact_data:locality" content="Ciudad de México">
+	<meta property="business:contact_data:region" content="Ciudad de México">
+	<meta property="business:contact_data:postal_code" content="01080">
+	<meta property="business:contact_data:country_name" content="México">
+
+	<!--links scripts-->
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-colors-highway.css">
@@ -16,7 +32,7 @@
 	
 	
 </head>
-<body class="w3-pale-green">
+<body class=" w3-container w3-margin-0 w3-padding-0 w3-pale-green">
 	<header	>
 		<ul class="w3-navbar color-itam w3-xlarge w3-margin-bottom w3-center w3-padding">
 			<img src="img/VectPPPV17.png" alt="Practicas Profesionales De Verano 2017" class="w3-image" style="max-width:200px"> 
@@ -24,66 +40,75 @@
 		</ul>	
 	</header>
 	<!-- /header -->	
+	<main>
+			<div class="w3-container">
+			<div class="w3-card-4 w3-border w3-border-black">
+				
+				<header class="w3-container color-itam w3-row">
+				<button class="w3-btn w3-green w3-right w3-padding w3-center"  onclick="document.getElementById('id01').style.display='block'"><i class="material-icons">person</i><p class="w3-margin-0">Login</p></button>
+				<h1 class="w3-rest w3-text-white">Registro Alumnos</h1>
+				</header>
 
-	<div class="w3-container">
-		<div class="w3-card-4 w3-border w3-border-black">
-			
-			<header class="w3-container color-itam w3-row">
-			<button class="w3-btn w3-green w3-right w3-padding w3-center"  onclick="document.getElementById('id01').style.display='block'"><i class="material-icons">person</i><p class="w3-margin-0">Login</p></button>
-			<h1 class="w3-rest w3-text-white">Registro Alumnos</h1>
-			</header>
+				<div class="w3-container w3-white w3-row w3-padding">
+					<div class="w3-col l6 m6 s12">
+						<p>
+							<input class="w3-input" type="email" id="txtEmail" required>
+							<label class="w3-label w3-validate">Email</label>
+						</p>
+						<p>
+							<input class="w3-input" type="password" id="txtPassword" required>
+							<label class="w3-label w3-validate">Password</label>
+						</p>
+						<button class="w3-btn w3-green" id="btnRegister">Registrarse</button>
+					</div>
+					<div class="w3-col l6 m6 s0 w3-center w3-hide-small">
+						<img src="img/itam-portafolio.jpg" alt="ITAM" class="w3-image" style="width:90%;max-width:400px;margin:auto 0 auto">
+					</div>
+				</div>
 
-			<div class="w3-container w3-white w3-row w3-padding">
-				<div class="w3-col l6 m6 s12">
-					<p>
-						<input class="w3-input" type="email" id="txtEmail" required>
-						<label class="w3-label w3-validate">Email</label>
-					</p>
-					<p>
-						<input class="w3-input" type="password" id="txtPassword" required>
-						<label class="w3-label w3-validate">Password</label>
-					</p>
-					<button class="w3-btn w3-green" id="btnRegister">Registrarse</button>
-				</div>
-				<div class="w3-col l6 m6 s0 w3-center w3-hide-small">
-					<img src="img/itam-portafolio.jpg" alt="ITAM" class="w3-image" style="width:90%;max-width:400px;margin:auto 0 auto">
-				</div>
+				<footer class="w3-container w3-black">
+					<h5>Powered by <a href="http://wil.itam.mx" title="WIL.ITAM" alt="WIL.ITAM">WIL.itam.mx</a></h5>
+				</footer>
 			</div>
-
-			<footer class="w3-container w3-black">
-				<h5>Powered by <a href="http://wil.itam.mx" title="W3.CSS" alt="W3.CSS">WIL.itam.mx</a></h5>
-			</footer>
 		</div>
-	</div>
-	<!-- Registro -->
+		<!-- Registro -->
 
-	<div id="id01" class="w3-modal">
-  		<div class="w3-card-4 w3-border w3-border-black w3-margin w3-display-middle">
-			
-			<header class="w3-container color-itam w3-row">
-			<span onclick="document.getElementById('id01').style.display='none'" 
-      class="w3-closebtn">&times;</span>
-			<h2 class="w3-rest w3-text-white">Login</h2>
-			</header>
+		<div id="id01" class="w3-modal">
+	  		<div class="w3-card-4 w3-border w3-border-black w3-margin w3-display-middle">
+				
+				<header class="w3-container color-itam w3-row">
+				<span onclick="document.getElementById('id01').style.display='none'" 
+	      class="w3-closebtn">&times;</span>
+				<h2 class="w3-rest w3-text-white">Login</h2>
+				</header>
 
-			<div class="w3-container w3-white w3-padding">
-				<div class="">
-					<p>
-						<input class="w3-input" type="email" id="txtEmailLogin" required>
-						<label class="w3-label w3-validate">Email</label>
-					</p>
-					<p>
-						<input class="w3-input" type="password" id="txtPasswordLogin" required>
-						<label class="w3-label w3-validate">Password</label>
-					</p>
-					<button class="w3-btn w3-green" id="btnLogin">Login</button></p>
+				<div class="w3-container w3-white w3-padding">
+					<div class="">
+						<p>
+							<input class="w3-input" type="email" id="txtEmailLogin" required>
+							<label class="w3-label w3-validate">Email</label>
+						</p>
+						<p>
+							<input class="w3-input" type="password" id="txtPasswordLogin" required>
+							<label class="w3-label w3-validate">Password</label>
+						</p>
+						<button class="w3-btn w3-green" id="btnLogin">Login</button>
+					</div>
 				</div>
+				<footer class="w3-container w3-black">
+					<h5>Powered by <a href="http://www.w3schools.com/w3css/default.asp" title="WIL.ITAM" alt="WIL.ITAM">WIL.itam.mx</a></h5>
+				</footer>
 			</div>
-			<footer class="w3-container w3-black">
-				<h5>Powered by <a href="http://www.w3schools.com/w3css/default.asp" title="W3.CSS" alt="W3.CSS">WIL.itam.mx</a></h5>
-			</footer>
-	</div>
-	<!-- Login -->
+		</div>
+		<!-- Login -->
+	</main>
+
+	
+	<footer class="w3-container footer-grey w3-bottom w3-center w3-text-white" id="footer">
+		<h3 class=" w3-small">
+			Created by © WIL ITAM, 2017
+		</h3>
+	</footer>
 
 	<script src="js/index.js" type="text/javascript" charset="utf-8" ></script>
 	<script src="js/functions.js" type="text/javascript" charset="utf-8" ></script>

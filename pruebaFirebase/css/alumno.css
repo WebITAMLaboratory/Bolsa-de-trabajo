@@ -6,13 +6,6 @@ body *
 		font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-main{
-	padding-bottom: 100px;
-}
-
-.footer{
-	max-height: 80px;
-}
 .color-itam
 {
 	background-color: #006853 !important;
@@ -20,8 +13,4 @@ main{
 .border-itam
 {
 	border-color: #09553B !important;
-}
-.footer-grey
-{
-	background-color: #222222 !important;
 }
