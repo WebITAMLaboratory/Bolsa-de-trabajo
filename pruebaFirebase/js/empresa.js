@@ -25,6 +25,12 @@ const btnLogin = document.getElementById("btnLogin");
 const txtEmailLogin  = document.getElementById("txtEmailLogin");
 const txtPasswordLogin  = document.getElementById("txtPasswordLogin");
 
+
+//
+// ======================= LLEVAR A LA PAGINA DE INFORMACION SOBRE EL REGISTRO COMO EMRPRESA
+// ======================= CREAR LA BASE DE DATOS Y DAR SENTIDO QUE ES UNA EMPRESA
+// ======================= CREAR LA FORMA DE CONFIRMACION SOBRE LOS USOS DEL SITIO
+//
 //ADD register event
 btnRegister.addEventListener("click", function(){
 	const email = txtEmail.value;

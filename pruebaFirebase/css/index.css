@@ -1,17 +1,30 @@
-body{
+html {
+  height: 100%;
 }
-
+body {
+  height: 100%;
+  min-height: 100%;
+}
 body *
 {
-		font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-main{
-	padding-bottom: 100px;
+#header-main{
+	margin : 0 0 55px;
+	height: auto;
+	overflow: auto;
 }
+#header{
 
-.footer{
-	max-height: 80px;
+}
+#main{
+}
+#footer{
+	height: 55px;
+}
+@media screen and (max-width: 960px){
+
 }
 .color-itam
 {
@@ -24,4 +37,7 @@ main{
 .footer-grey
 {
 	background-color: #222222 !important;
+}
+.clickable{
+	cursor: pointer;
 }
