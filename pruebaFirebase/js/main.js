@@ -30,7 +30,12 @@ btnLogOut.addEventListener("click", function(){
       });
 });
 
-const selectIdioma = document.getElementById("selectAlumIdiomas");
+
 function displayIdioma() {
-    document.getElementById("idioma").innerHTML = selectIdioma;
+    var strIdioma = $("#selectAlumIdiomas :selected").text();
+    ideoma(strIdioma);
+}
+function Idioma(strIdioma) {
+    var btn = document.createTextNode(strIdioma);
+    document.getElementById("idioma").appendChild(btn);
 }
