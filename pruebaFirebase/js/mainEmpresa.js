@@ -18,26 +18,52 @@ var config = {
 };
 */
 
+$(document).ready(function(){
 
 
-/*lOG OUT PROCESS*/
-btnLogOut.addEventListener("click", function(){
-      firebase.auth().signOut().then(function() {
-        console.log("Sign-out successful");
+  //buttons
+  const btnLogOut = document.getElementById("btnLogOut");
+  const btnCancelar = document.getElementById("btnCancelar");
+  const btnFormulario = document.getElementById("btnFormulario");
 
-      }, function(error) {
-        console.log("An error happened.");
-        alert(error.message);
-      });
-});
+  //text
+  const txtEmpresaNom = document.getElementById("txtEmpresaNom");
+  const txtEmpresaContacto = document.getElementById("txtEmpresaContacto");
+  const txtEmpresaTel = document.getElementById("txtEmpresaTel");
+  const txtEmpresaVac = document.getElementById("txtEmpresaVac");
+  const txtEmpresaSueldo = document.getElementById("txtEmpresaSueldo");
 
-/*lOG OUT PROCESS*/
-btnCancelar.addEventListener("click", function(){
-      firebase.auth().signOut().then(function() {
-        console.log("Sign-out successful");
+  /*lOG OUT PROCESS*/
+  btnLogOut.addEventListener("click", function(){
+        firebase.auth().signOut().then(function() {
+          console.log("Sign-out successful");
 
-      }, function(error) {
-        console.log("An error happened.");
-        alert(error.message);
-      });
+        }, function(error) {
+          console.log("An error happened.");
+          alert(error.message);
+        });
+  });
+
+  /*lOG OUT PROCESS*/
+  btnCancelar.addEventListener("click", function(){
+        firebase.auth().signOut().then(function() {
+          console.log("Sign-out successful");
+
+        }, function(error) {
+          console.log("An error happened.");
+          alert(error.message);
+        });
+  });
+
+  btnFormulario.addEventListener("click",function(){
+    const nom = txtEmpresaNom.value;
+    const contacto = txtEmpresaContacto.value;
+    const tel = txtEmpresaTel.value;
+    const numVac = txtEmpresaVac.value;
+    const sueldoAprox = txtEmpresaSueldo.value;
+
+    llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox);
+
+  });
+
 });
