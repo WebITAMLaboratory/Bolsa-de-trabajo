@@ -30,4 +30,7 @@ btnLogOut.addEventListener("click", function(){
       });
 });
 
-
+const selectIdioma = document.getElementById("selectAlumIdiomas");
+function displayIdioma() {
+    document.getElementById("idioma").innerHTML = selectIdioma;
+}
