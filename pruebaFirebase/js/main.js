@@ -19,10 +19,6 @@ var config = {
   */
 
 
-const btnRegister = document.getElementById("btnRegister");
-const txtEmail  = document.getElementById("txtEmail");
-const txtPassword  = document.getElementById("txtPassword");
-
 /*lOG OUT PROCESS*/
 btnLogOut.addEventListener("click", function(){
       firebase.auth().signOut().then(function() {

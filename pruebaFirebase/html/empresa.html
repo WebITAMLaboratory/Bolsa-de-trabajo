@@ -31,6 +31,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	
 	
+	
 </head>
 <body class=" w3-container w3-margin-0 w3-padding-0 w3-pale-green">
 <div id="header-main" class="w3-container w3-padding-0">
@@ -48,24 +49,25 @@
 			<div class="w3-card-4 w3-border w3-border-black">
 				
 				<header class="w3-container color-itam w3-row">
-				<button class="w3-btn w3-green w3-right w3-padding w3-center"  onclick="document.getElementById('id01').style.display='block'"><i class="material-icons">person</i><p class="w3-margin-0">Login</p></button>
+				
 				<h1 class="w3-rest w3-text-white">Registro Empresas</h1>
 				</header>
 
 				<div class="w3-container w3-white w3-row w3-padding">
 					<div class="w3-col l6 m6 s12">
-						<span class="w3-text-red" id="txtError">
-								Registra tu email y password para poder iniciar.
+						<span class="w3-text-red" id="txtErrorLogin">
+								Ingresa tu email y password para poder iniciar.
 						</span>
 						<p>
-							<input class="w3-input" type="email" id="txtEmail" required>
-							<label class="w3-label w3-validate">Email => "email@dominio.com"</label>
+							<input class="w3-input" type="email" id="txtEmailLogin" required>
+							<label class="w3-label w3-validate">Email "email@itam.mx"</label>
 						</p>
 						<p>
-							<input class="w3-input" type="password" id="txtPassword" required>
-							<label class="w3-label w3-validate">Password => (6+ letras, no caracteres especiales)</label>
+							<input class="w3-input" type="password" id="txtPasswordLogin" required>
+							<label class="w3-label w3-validate">Password (6+ letras, no caracteres especiales)</label>
 						</p>
-						<button class="w3-btn w3-green clickable" id="btnRegister">Registrarse</button>
+						<button class="w3-btn w3-green clickable w3-left" id="btnLogin">Login</button>
+						<button class="w3-btn w3-green  w3-padding w3-center w3-right"  onclick="document.getElementById('id01').style.display='block'"><p class="w3-margin-0">Registrarse</p></button>
 					</div>
 					<div class="w3-col l6 m6 s0 w3-center w3-hide-small">
 						<img src="../img/itam-portafolio.jpg" alt="ITAM" class="w3-image" style="width:90%;max-width:400px;margin:auto 0 auto">
@@ -80,28 +82,28 @@
 		<!-- Registro -->
 
 		<div id="id01" class="w3-modal">
-	  		<div class="w3-card-4 w3-border w3-border-black w3-margin">
+	  		<div class="w3-card-4 w3-border w3-border-black" id="login">
 				
 				<header class="w3-container color-itam w3-row">
 				<span onclick="document.getElementById('id01').style.display='none'" 
 	      class="w3-closebtn">&times;</span>
-				<h2 class="w3-rest w3-text-white">Login</h2>
+				<h2 class="w3-rest w3-text-white">Registro</h2>
 				</header>
 
 				<div class="w3-container w3-white w3-padding">
 					<div class="">
 						<span class="w3-text-red" id="txtError">
-								Registra tu email y password para poder iniciar.
+								Ingresa tu email y password para registrarte.
 						</span>
 						<p>
-							<input class="w3-input" type="email" id="txtEmailLogin" required>
+							<input class="w3-input" type="email" id="txtEmail" required>
 							<label class="w3-label w3-validate">Email</label>
 						</p>
 						<p>
-							<input class="w3-input" type="password" id="txtPasswordLogin" required>
+							<input class="w3-input" type="password" id="txtPassword" required>
 							<label class="w3-label w3-validate">Password</label>
 						</p>
-						<button class="w3-btn w3-green clickable" id="btnLogin">Login</button>
+						<button class="w3-btn w3-green clickable" id="btnRegister">Registrarse</button>
 					</div>
 				</div>
 				<footer class="w3-container w3-black">
@@ -119,7 +121,6 @@
 			Creado por <a href="http://wil.itam.mx" title="wil itam">wil.itam.mx</a>
 		</h3>
 	</footer>
-
 	<script src="../js/empresa.js" type="text/javascript" charset="utf-8" ></script>
 	<script src="../js/functions.js" type="text/javascript" charset="utf-8" ></script>
 	

@@ -19,9 +19,17 @@ body *
 
 }
 #main{
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
 }
 #footer{
 	height: 55px;
+}
+#login{
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
 }
 @media screen and (max-width: 960px){
 

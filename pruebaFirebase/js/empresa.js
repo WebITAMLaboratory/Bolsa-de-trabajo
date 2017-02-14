@@ -1,12 +1,13 @@
 // Initialize Firebase
-/*var config = {
+
+var config = {
 	apiKey: "AIzaSyBxrNMp2TQU8y72jkRRGLSdJq2-2N3jNRw",
 	authDomain: "prueba-proyecto-39eb7.firebaseapp.com",
 	databaseURL: "https://prueba-proyecto-39eb7.firebaseio.com",
 	storageBucket: "prueba-proyecto-39eb7.appspot.com",
 	messagingSenderId: "356288809556"
 };
-*/
+/*
 var config = {
     apiKey: "AIzaSyAUByn-6VOe_6htTVEUyNZi9MRdTHg-Ew8",
     authDomain: "bolsadetrabajoitamdb.firebaseapp.com",
@@ -14,6 +15,7 @@ var config = {
     storageBucket: "bolsadetrabajoitamdb.appspot.com",
     messagingSenderId: "427953157462"
 };
+*/
 firebase.initializeApp(config);
 
 //Registro
@@ -35,7 +37,7 @@ const txtPasswordLogin  = document.getElementById("txtPasswordLogin");
 btnRegister.addEventListener("click", function(){
 	const email = txtEmail.value;
 	const password = txtPassword.value;
-	registerAlumno( email, password);
+	registerEmpresa( email, password);
 	console.log("Trying to Register");
 });
 

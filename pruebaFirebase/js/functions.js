@@ -1,29 +1,48 @@
-   
+
+	//email validation
+	function ValidateEmail(mail) 
+	{
+	 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(mail))
+	  {
+	    return (true)
+	  }
+	    return (false)
+	} 
+
     //LOGIN
 	function loginAlumno(email,password){
 
 		var mail = email;
 		var pass = password;
 		
-		if( mail != null && password != null)
+		if( mail != null && password != null )
 		{	
-			firebase.auth().signInWithEmailAndPassword(mail, pass)
-			.then(function(){
-				console.log("========== Login Succesfull! ========== \n ----- Welcome : " + mail);
-			})
-			.catch(function(error) {
-			   // Handle Errors here.
-			   var errorCode = error.code;
-			   var errorMessage = error.message;
-			   console.log(errorCode + "\n" + errorMessage);
-			   console.log("========== ERROR COULD NOT LOGIN ==========");
-			   document.getElementById("txtError").innerHTML = errorMessage;
-			   // ...
-			 });
+			if(ValidateEmail(mail))
+			{
+				firebase.auth().signInWithEmailAndPassword(mail, pass)
+				.then(function(){
+					console.log("========== Login Succesfull! ========== \n ----- Welcome : " + mail);
+				})
+				.catch(function(error) {
+				   // Handle Errors here.
+				   var errorCode = error.code;
+				   var errorMessage = error.message;
+				   console.log(errorCode + "\n" + errorMessage);
+				   console.log("========== ERROR COULD NOT LOGIN ==========");
+				   document.getElementById("txtErrorLogin").innerHTML = errorMessage;
+				   // ...
+				 });
+			}
+			else
+			{
+				document.getElementById("txtErrorLogin").innerHTML = "No se aceptan caracteres especiales en el mail";
+				console.log("Please enter Email and Password");
+			}
+			
 		}
 		else
 		{
-			txtError.innerHTML = errorMessage;
+			document.getElementById("txtErrorLogin").innerHTML = "El email y la contraseña son requeridos";
 			console.log("Please enter Email and Password");
 		}
 	};
@@ -40,20 +59,28 @@
 		if(mail.includes('itam.mx'))
 		{
 			if( mail != null && password != null)
-			{
-				firebase.auth().createUserWithEmailAndPassword(mail, pass)
-				.then(function(){
-					console.log(" ----- Register Complete \n");
-				})
-				.catch(function(error) {
-		   		// Handle Errors here.
-		    	var errorCode = error.code;
-		    	var errorMessage = error.message;
-		    	// ...
-		    	console.log(errorCode + "\n" + errorMessage);
-		    	console.log("========== ERROR COULD NOT REGISTER ==========");
-		    	document.getElementById("txtErrorLogin").innerHTML = errorMessage;
-		    	}); 
+			{	
+				if(ValidateEmail(mail))
+				{
+					firebase.auth().createUserWithEmailAndPassword(mail, pass)
+					.then(function(){
+						console.log(" ----- Register Complete \n");
+					})
+					.catch(function(error) {
+			   		// Handle Errors here.
+			    	var errorCode = error.code;
+			    	var errorMessage = error.message;
+			    	// ...
+			    	console.log(errorCode + "\n" + errorMessage);
+			    	console.log("========== ERROR COULD NOT REGISTER ==========");
+			    	document.getElementById("txtError").innerHTML = errorMessage;
+			    	});
+			    }
+			    else
+				{
+				document.getElementById("txtError").innerHTML = "No se aceptan caracteres especiales en el mail";
+				console.log("Please enter Email and Password");
+				} 
 			}
 			else
 			{
@@ -67,8 +94,46 @@
 		}
 	};
 
+	// REGISTER EMPRESA
+	function registerEmpresa(email,password){
+
+		var mail = email;
+		var pass = password;
+		//  ============================= HACER EL REGISTER PARA DOMINIOS DE EMEPRESA ======================
+		//  ============================= CREAR UNA BASE DE DATOS PARA CADA UNO DE ELLOS ===================
+		//
+			if( mail != null && password != null)
+			{
+				if (ValidateEmail(mail))
+				{
+					firebase.auth().createUserWithEmailAndPassword(mail, pass)
+					.then(function(){
+						console.log(" ----- Register Complete \n");
+					})
+					.catch(function(error) {
+			   		// Handle Errors here.
+			    	var errorCode = error.code;
+			    	var errorMessage = error.message;
+			    	// ...
+			    	console.log(errorCode + "\n" + errorMessage);
+			    	console.log("========== ERROR COULD NOT REGISTER ==========");
+			    	document.getElementById("txtError").innerHTML = errorMessage;
+			    	});
+			    }
+			    else
+				{	
+				document.getElementById("txtError").innerHTML = "No se aceptan caracteres especiales en el mail";
+				console.log("Please enter Email and Password");
+				} 
+			}
+			else
+			{
+				console.log("Please enter Email and Password");
+			}
+	};
+
+	//Sign OUT
 	function signOut(){
-		//SIGN OUT
 		firebase.auth().signOut()
 		.then(function()
 		{
@@ -79,10 +144,10 @@
 		}, function(error)
 		{
 			console.log(" ========== Coud not Sign Out! ==========");
-			document.getElementById("txtError").innerHTML = errorMessage;
 		  // An error happened.
 		});
 	}
+
 	//ON LOGIN OR LOGOUT
 	firebase.auth().onAuthStateChanged(function(user) {
 		  if (user)
@@ -96,7 +161,7 @@
 		  	if ((window.location.href).includes("empresa.html"))
 		  	{
 				const location = (window.location.href).replace("/empresa.html","");
-			    window.location.href = (location + "/html/mainEmpresa.html");
+			    window.location.href = (location + "/mainEmpresa.html");
 		  	}
 		  } 
 		  else 
