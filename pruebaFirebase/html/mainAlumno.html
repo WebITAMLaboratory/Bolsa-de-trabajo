@@ -19,108 +19,183 @@
 </head>
 
 <body class="w3-pale-green">
-<div id="header-main" class="w3-container w3-padding-0">
-	<header	>
-		<ul class="w3-navbar color-itam w3-xlarge w3-margin-bottom w3-center w3-padding">
-			<img src="../img/VectPPPV17.png" alt="Practicas Profesionales De Verano 2017" class="w3-image" style="max-width:200px">
-			<p class="w3-margin-0 w3-text-white w3-border-top border-itam">
-				Prácticas Profesionales De Verano 2017
-				<button class="w3-btn w3-green w3-right w3-small" id="btnLogOut"><p class="w3-margin-0">Log Out</p></button> 
-			</p>
-			
-		</ul>	
-	</header>
-	<!-- /header -->
+	<div id="header-main" class="w3-container w3-padding-0">
+		<header	>
+			<ul class="w3-navbar color-itam w3-xlarge w3-margin-bottom w3-center w3-padding">
+				<img src="../img/VectPPPV17.png" alt="Practicas Profesionales De Verano 2017" class="w3-image" style="max-width:200px">
+				<p class="w3-margin-0 w3-text-white w3-border-top border-itam">
+					Prácticas Profesionales De Verano 2017
+					<button class="w3-btn w3-green w3-right w3-small" id="btnLogOut"><p class="w3-margin-0">Log Out</p></button> 
+				</p>
+
+			</ul>	
+		</header>
+		<!-- /header -->
 		<main class="w3-display-container" id="main">
-		<div class="w3-container">
-			<div class="w3-card-4 w3-border w3-border-black">
-				
-				<header class="w3-container color-itam w3-row">
-				<h1 class="w3-rest w3-text-white">Formato de Alumno</h1>
-				</header>
+			<div class="w3-container">
+				<div class="w3-card-4 w3-border w3-border-black">
 
-				<div class="w3-container w3-white w3-row w3-padding">
-					<div class="w3-col l6 m6 s12 w3-padding">
-					<!--NOMBRE-->
-						<p>
-							<span class="w3-text-red" id="txtErrorAlumCU">
+					<header class="w3-container color-itam w3-row">
+						<h1 class="w3-rest w3-text-white">Formato de Alumno</h1>
+					</header>
 
-							</span>
-							<input class="w3-input" type="text" id="txtAlumNom" required>
-							<label class="w3-label w3-validate">Nombre</label>
-						</p>
-						<!--Clave Unica-->
-						<p>
-							<span class="w3-text-red" id="txtErrorAlumIdiomas">
+					<div class="w3-container w3-white w3-row w3-padding">
+						<div class="w3-col l6 m6 s12 w3-padding">
+							<!--NOMBRE-->
+							<p>
+								<span class="w3-text-red" id="txtErrorAlumCU">
 
-							</span>
-							<input class="w3-input" type="number" id="txtAlumCU" required>
-							<label class="w3-label w3-validate">Clave Unica</label>
-						</p>
-						<!--Telefono de Contacto-->
-						<p>
-							<span class="w3-text-red" id="txtErrorAlumTel">
+								</span>
+								<input class="w3-input" type="text" id="txtAlumNom" required>
+								<label class="w3-label w3-validate">Nombre</label>
+							</p>
+							<!--Clave Unica-->
+							<p>
+								<span class="w3-text-red" id="txtErrorAlumIdiomas">
 
-							</span>
-							<input class="w3-input" type="number" id="txtAlumTel" required>
-							<label class="w3-label w3-validate">Telefono de Contacto</label>
-						</p>
-						<!--Carrera-->
-						<p>
-							<span class="w3-text-red" id="txtErrorAlumCarrera">
+								</span>
+								<input class="w3-input" type="number" id="txtAlumCU" required>
+								<label class="w3-label w3-validate">Clave Unica</label>
+							</p>
+							<!--Telefono de Contacto-->
+							<p>
+								<span class="w3-text-red" id="txtErrorAlumTel">
 
-							</span>
-							<input class="w3-input" type="text" id="txtAlumCarrera" required>
-							<label class="w3-label w3-validate">Carrera</label>
-						</p>
-						<!--Semestre-->
-						<p>
-							<span class="w3-text-red" id="txtErrorAlumSem">
+								</span>
+								<input class="w3-input" type="number" id="txtAlumTel" required>
+								<label class="w3-label w3-validate">Telefono de Contacto</label>
+							</p>
+							<!--Carrera-->
+							<p>
+								<span class="w3-text-red" id="txtErrorAlumCarrera">
 
-							</span>
-							<input class="w3-input" type="number" id="txtAlumSem" required>
-							<label class="w3-label w3-validate">Semestre actual</label>
-						</p>
-					</div>
-					<div class="w3-col l6 m6 s12 w3-padding">
-						
-						<!--Idiomas-->
-						<p>
-							<span class="w3-text-red" id="txtErrorAlumIdiomas">
+								</span>
+								<input class="w3-input" type="text" id="txtAlumCarrera" required>
+								<label class="w3-label w3-validate">Carrera</label>
+							</p>
+							<!--Semestre-->
+							<p>
+								<span class="w3-text-red" id="txtErrorAlumSem">
 
-							</span>
-							<input class="w3-input" type="text" id="txtAlumIdioma" required>
-							<label class="w3-label w3-validate">Idiomas</label>
-						</p>
+								</span>
+								<input class="w3-input" type="number" id="txtAlumSem" required>
+								<label class="w3-label w3-validate">Semestre actual</label>
+							</p>
+						</div>
+						<div class="w3-col l6 m6 s12 w3-padding">
+
+							<!--Idiomas-->
+							<p>
+								<span class="w3-text-red" id="txtErrorAlumIdiomas">
+
+								</span>
+								
+								<select class="w3-select" id="selectAlumIdiomas" data-placeholder="Choose a Language..." onclick="displayIdioma()" style="width:350px;" required>
+									<option value="AF">Afrikanns</option>
+									<option value="SQ">Albanian</option>
+									<option value="AR">Arabic</option>
+									<option value="HY">Armenian</option>
+									<option value="EU">Basque</option>
+									<option value="BN">Bengali</option>
+									<option value="BG">Bulgarian</option>
+									<option value="CA">Catalan</option>
+									<option value="KM">Cambodian</option>
+									<option value="ZH">Chinese (Mandarin)</option>
+									<option value="HR">Croation</option>
+									<option value="CS">Czech</option>
+									<option value="DA">Danish</option>
+									<option value="NL">Dutch</option>
+									<option value="EN">English</option>
+									<option value="ET">Estonian</option>
+									<option value="FJ">Fiji</option>
+									<option value="FI">Finnish</option>
+									<option value="FR">French</option>
+									<option value="KA">Georgian</option>
+									<option value="DE">German</option>
+									<option value="EL">Greek</option>
+									<option value="GU">Gujarati</option>
+									<option value="HE">Hebrew</option>
+									<option value="HI">Hindi</option>
+									<option value="HU">Hungarian</option>
+									<option value="IS">Icelandic</option>
+									<option value="ID">Indonesian</option>
+									<option value="GA">Irish</option>
+									<option value="IT">Italian</option>
+									<option value="JA">Japanese</option>
+									<option value="JW">Javanese</option>
+									<option value="KO">Korean</option>
+									<option value="LA">Latin</option>
+									<option value="LV">Latvian</option>
+									<option value="LT">Lithuanian</option>
+									<option value="MK">Macedonian</option>
+									<option value="MS">Malay</option>
+									<option value="ML">Malayalam</option>
+									<option value="MT">Maltese</option>
+									<option value="MI">Maori</option>
+									<option value="MR">Marathi</option>
+									<option value="MN">Mongolian</option>
+									<option value="NE">Nepali</option>
+									<option value="NO">Norwegian</option>
+									<option value="FA">Persian</option>
+									<option value="PL">Polish</option>
+									<option value="PT">Portuguese</option>
+									<option value="PA">Punjabi</option>
+									<option value="QU">Quechua</option>
+									<option value="RO">Romanian</option>
+									<option value="RU">Russian</option>
+									<option value="SM">Samoan</option>
+									<option value="SR">Serbian</option>
+									<option value="SK">Slovak</option>
+									<option value="SL">Slovenian</option>
+									<option value="ES">Spanish</option>
+									<option value="SW">Swahili</option>
+									<option value="SV">Swedish </option>
+									<option value="TA">Tamil</option>
+									<option value="TT">Tatar</option>
+									<option value="TE">Telugu</option>
+									<option value="TH">Thai</option>
+									<option value="BO">Tibetan</option>
+									<option value="TO">Tonga</option>
+									<option value="TR">Turkish</option>
+									<option value="UK">Ukranian</option>
+									<option value="UR">Urdu</option>
+									<option value="UZ">Uzbek</option>
+									<option value="VI">Vietnamese</option>
+									<option value="CY">Welsh</option>
+									<option value="XH">Xhosa</option>
+								</select>
+								<br>
+								<label class="w3-label w3-validate" id="idioma">Idiomas: </label>
+							</p>
 							<!--Nivel-->
-						<p>
-							<span class="w3-text-red" id="txtErrorAlumNivel">
+							<p>
+								<span class="w3-text-red" id="txtErrorAlumNivel">
 
-							</span>
-							<input class="w3-input" type="text" id="txtAlumNivel" required>
-							<label class="w3-label w3-validate">Nivel</label>
-						</p>
+								</span>
+								<input class="w3-input" type="text" id="txtAlumNivel" required>
+								<label class="w3-label w3-validate">Nivel</label>
+							</p>
 							<!--Interes-->
-						<p>
-							<span class="w3-text-red" id="txtErrorAlumInteres">
+							<p>
+								<span class="w3-text-red" id="txtErrorAlumInteres">
 
-							</span>
-							<input class="w3-input" type="text" id="txtAlumInteres" required>
-							<label class="w3-label w3-validate">Empresas de interés 1 </label>
-							<input class="w3-input" type="text" id="txtAlumInteres" required>
-							<label class="w3-label w3-validate">Empresas de interés 2 </label>
-							<input class="w3-input" type="text" id="txtAlumInteres" required>
-							<label class="w3-label w3-validate">Empresas de interés 3 </label>
-						</p>
-						<button class="w3-btn w3-green clickable w3-left" id="btnFormulario">Terminar</button>
+								</span>
+								<input class="w3-input" type="text" id="txtAlumInteres" required>
+								<label class="w3-label w3-validate">Empresas de interés 1 </label>
+								<input class="w3-input" type="text" id="txtAlumInteres" required>
+								<label class="w3-label w3-validate">Empresas de interés 2 </label>
+								<input class="w3-input" type="text" id="txtAlumInteres" required>
+								<label class="w3-label w3-validate">Empresas de interés 3 </label>
+							</p>
+							<button class="w3-btn w3-green clickable w3-left" id="btnFormulario">Terminar</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- FORMULARIO -->
-	</main>
-</div>
-<footer class="w3-container footer-grey w3-bottom w3-center w3-text-white" id="footer">
+			<!-- FORMULARIO -->
+		</main>
+	</div>
+	<footer class="w3-container footer-grey w3-bottom w3-center w3-text-white" id="footer">
 		<h3 class=" w3-small">
 			Derechos Reservados &copy; ITAM, 2017<br>
 			Creado por <a href="http://wil.itam.mx" title="wil itam">wil.itam.mx</a>

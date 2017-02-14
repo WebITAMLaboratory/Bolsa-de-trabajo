@@ -31,3 +31,11 @@ btnLogOut.addEventListener("click", function(){
 });
 
 
+function displayIdioma() {
+    var strIdioma = $("#selectAlumIdiomas :selected").text();
+    ideoma(strIdioma);
+}
+function Idioma(strIdioma) {
+    var btn = document.createTextNode(strIdioma);
+    document.getElementById("idioma").appendChild(btn);
+}
