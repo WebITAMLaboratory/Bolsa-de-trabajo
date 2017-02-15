@@ -33,9 +33,11 @@ btnLogOut.addEventListener("click", function(){
 
 function displayIdioma() {
     var strIdioma = $("#selectAlumIdiomas :selected").text();
-    ideoma(strIdioma);
-}
-function Idioma(strIdioma) {
     var btn = document.createTextNode(strIdioma);
+    var btn2 ="";
+    if (btn!=btn2) {
+    var btn2 = btn
     document.getElementById("idioma").appendChild(btn);
+    }
 }
+
