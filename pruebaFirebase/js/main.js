@@ -33,11 +33,43 @@ btnLogOut.addEventListener("click", function(){
 
 function displayIdioma() {
     var strIdioma = $("#selectAlumIdiomas :selected").text();
-    var btn = document.createTextNode(strIdioma);
+    var btn = document.createTextNode("Nivel de " + strIdioma);
     var btn2 ="";
     if (btn!=btn2) {
     var btn2 = btn
-    document.getElementById("idioma").appendChild(btn);
+    
+    
+    var node = document.createElement("INPUT");               
+    var att = document.createAttribute("class");       
+    att.value = "w3-input";
+    node.setAttributeNode(att);
+    var att = document.createAttribute("type");       
+    att.value = "text";
+    node.setAttributeNode(att);
+    var att = document.createAttribute("id");       
+    att.value = "requiredNivel";
+    node.setAttributeNode(att);
+    var textnode = document.createTextNode(btn);        
+    node.appendChild(textnode);                             
+    document.getElementById("txtIdiomaNivel").appendChild(node);
+
+    var node = document.createElement("LABEL");               
+    var att = document.createAttribute("class");       
+    att.value = "w3-label w3-validate";
+    node.setAttributeNode(att);
+    var att = document.createAttribute("id");       
+    att.value = "lbNivel";
+    node.setAttributeNode(att);
+    var textnode = document.createTextNode(btn);
+    node.appendChild(textnode); 
+    document.getElementById("txtIdiomaNivel").appendChild(node);        
+                                
+    document.getElementById("txtIdiomaNivel").appendChild(node);
+    document.getElementById("txtIdiomaNivel").appendChild(btn);
+    document.getElementById("requiredNivel").required = true; 
     }
 }
+    function displayMensaje() {
+      window.location.href = ("http://practicasdeverano.itam.mx/html/verificacion.html");
+    }
 
