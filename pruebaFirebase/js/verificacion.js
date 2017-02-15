@@ -1,3 +1,24 @@
+// Initialize Firebase
+
+var config = {
+	apiKey: "AIzaSyBxrNMp2TQU8y72jkRRGLSdJq2-2N3jNRw",
+	authDomain: "prueba-proyecto-39eb7.firebaseapp.com",
+	databaseURL: "https://prueba-proyecto-39eb7.firebaseio.com",
+	storageBucket: "prueba-proyecto-39eb7.appspot.com",
+	messagingSenderId: "356288809556"
+};
+firebase.initializeApp(config);
+/*
+var config = {
+    apiKey: "AIzaSyAUByn-6VOe_6htTVEUyNZi9MRdTHg-Ew8",
+    authDomain: "bolsadetrabajoitamdb.firebaseapp.com",
+    databaseURL: "https://bolsadetrabajoitamdb.firebaseio.com",
+    storageBucket: "bolsadetrabajoitamdb.appspot.com",
+    messagingSenderId: "427953157462"
+};
+*/
+
+
 $( document ).ready(function() {
 
 	document.getElementById("btnLogOut").addEventListener("click",function(){
@@ -21,12 +42,13 @@ $( document ).ready(function() {
 		});
 	}
 
-	const email = firebase.auth().currentUser.email;
+	var email;
 	//ON LOGIN OR LOGOUT
 	firebase.auth().onAuthStateChanged(function(user) {
 		  if (user)
 		  {
 		  	console.log("hay usuario");
+		  	email = firebase.auth().currentUser.email;
 		  } 
 		  else 
 		  {

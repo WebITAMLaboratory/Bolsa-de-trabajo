@@ -13,7 +13,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	if(nom != null)
   	{
   		nombre = nom;
-  		res = true + res;
+  		res = true;
   	}
   	else
   	{
@@ -23,7 +23,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	if( contacto != null)
   	{
   		cont = contacto;
-  		res = true + res;
+  		res = true == res;
   	}
   	else
   	{
@@ -33,7 +33,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	if( tel != null)
   	{
   		telefono = tel;
-  		res = true + res;
+  		res = true == res;
   	}
   	else
   	{
@@ -43,7 +43,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	if( numVac != null && numVac >= 0)
   	{
   		vacantes = numVac;
-  		res = true + res;
+  		res = true == res;
   	}
   	else
   	{
@@ -53,7 +53,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	if( sueldoAprox != null && sueldoAprox >= 0)
   	{
   		sueldo = sueldoAprox;
-  		res = true + res;
+  		res = true == res;
   	}
   	else
   	{
@@ -66,7 +66,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   		var uid = firebase.auth().currentUser.uid;
   		var email = firebase.auth().currentUser.email;
   		const urlEmpresa = "/empresas/" + uid + "/";
-
+  		const urlUsers = "/users/" + uid + "/";
   		
 
 		firebase.auth().currentUser.updateProfile({
@@ -81,13 +81,20 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
 		    		Vacantes: vacantes,
 		    		Sueldo: sueldo
 		    }).then(function(){
-		    	firebase.auth().currentUser.sendEmailVerification().then(function(){
-		    		const location = (window.location.href).replace("/mainEmpresa.html","");
-			    	window.location.href = (location + "/verificacion.html");
-		    	})
+		    	firebase.database().ref(urlUsers).set({
+		    		Tipo : "Empresa",
+		    		Registro : "true",
+            Nombre : nombre
+		    	}).then(function(){
+			    	firebase.auth().currentUser.sendEmailVerification().then(function(){
+			    		const location = (window.location.href).replace("/mainEmpresa.html","");
+				    	window.location.href = (location + "/verificacion.html");
+			    	})
+		   		})
 		    })
 		}, function(error) {
 		  // An error happened.
+      console.log(error.message);
 		});
 		
   	}
