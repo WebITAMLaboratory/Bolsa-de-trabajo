@@ -1,3 +1,4 @@
+	
 
 	//email validation
 	function ValidateEmail(mail) 
@@ -152,17 +153,48 @@
 	firebase.auth().onAuthStateChanged(function(user) {
 		  if (user)
 		  {	
+		  	firebase.database().ref().once("value").then(function(snapchot){
+					var a = snapchot.numChildren();
+				});
 		  	console.log("hay usuario activo");
-		  	if ((window.location.href).includes("index.html") || (window.location.href === "https://uboat46.com/pruebaFirebase/"))
+		  	const email = firebase.auth().currentUser.email;
+
+		  	if(firebase.auth().currentUser.emailVerified)
 		  	{
-				const location = (window.location.href).replace("/index.html","");
-			    window.location.href = (location + "/html/mainAlumno.html");
+			  	if ((email).includes("@itam.mx"))
+			  	{
+					
+				    window.location.replace("http://practicasdeverano.itam.mx/html/homeAlumno.html");
+			  	}
+			  	else
+			  	{
+					 window.location.replace("http://practicasdeverano.itam.mx/html/homeEmpresa.html");
+			  	}  
 		  	}
-		  	if ((window.location.href).includes("empresa.html"))
+		  	else
 		  	{
-				const location = (window.location.href).replace("/empresa.html","");
-			    window.location.href = (location + "/mainEmpresa.html");
+		  		const userId = firebase.auth().currentUser.uid;
+		  		var form = false;
+				
+				if(form)
+				{
+					window.location.href = ("http://practicasdeverano.itam.mx/html/verificacion.html");
+				}
+				else
+				{
+						if ((window.location.href).includes("index.html") || (window.location.href === "https://uboat46.com/pruebaFirebase/"))
+					  	{
+							const location = (window.location.href).replace("/index.html","");
+						    window.location.href = (location + "/html/mainAlumno.html");
+					  	}
+					  	if ((window.location.href).includes("empresa.html"))
+					  	{
+							const location = (window.location.href).replace("/empresa.html","");
+						    window.location.href = (location + "/mainEmpresa.html");
+					  	}
+				}
 		  	}
+		  
 		  } 
 		  else 
 		  {
