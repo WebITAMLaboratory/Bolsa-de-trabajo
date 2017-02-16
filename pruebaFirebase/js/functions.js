@@ -191,7 +191,7 @@
 									}
 									else
 									{
-											if ((window.location.href).includes("index.html") || (window.location.href === "https://uboat46.com/pruebaFirebase/"))
+											if ((window.location.href).includes("index.html") || (window.location.href === "http://practicasdeverano.itam.mx/"))
 										  	{
 												const location = (window.location.href).replace("/index.html","");
 											    window.location.href = (location + "/html/mainAlumno.html");
@@ -206,7 +206,7 @@
 		  				}
 		  				else
 		  				{
-		  						if ((window.location.href).includes("index.html") || (window.location.href === "https://uboat46.com/pruebaFirebase/"))
+		  						if ((window.location.href).includes("index.html") || (window.location.href === "http://practicasdeverano.itam.mx/"))
 										  	{
 												const location = (window.location.href).replace("/index.html","");
 											    window.location.href = (location + "/html/mainAlumno.html");
@@ -220,7 +220,7 @@
 		  			}
 		  			else
 		  			{
-		  				if ((window.location.href).includes("index.html") || (window.location.href === "https://uboat46.com/pruebaFirebase/"))
+		  				if ((window.location.href).includes("index.html") || (window.location.href === "http://practicasdeverano.itam.mx/"))
 										  	{
 												const location = (window.location.href).replace("/index.html","");
 											    window.location.href = (location + "/html/mainAlumno.html");
