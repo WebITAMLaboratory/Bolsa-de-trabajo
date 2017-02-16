@@ -108,7 +108,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
         displayName: nombre
       }).then(function() {
 		  // Update successful.
-      firebase.database().ref(urlEmpresa).set({
+      firebase.database().ref(urlAlum).set({
         Nombre: nombre,
         Email : email,
         Contacto: claveU,
