@@ -33,7 +33,7 @@ btnLogOut.addEventListener("click", function(){
 
 function displayIdioma() {
     var strIdioma = $("#selectAlumIdiomas :selected").text();
-    var btn = document.createTextNode(" " + strIdioma);
+    var btn = document.createTextNode(" de " + strIdioma);
     var btn2 ="";
     if (btn!=btn2) {
     var btn2 = btn
@@ -57,15 +57,23 @@ function displayIdioma() {
     var att = document.createAttribute("class");       
     att.value = "w3-label w3-validate";
     node.setAttributeNode(att);
-    var att = document.createAttribute("id");
-    var i = btn.val;       
-    att.value = "lbNivel" + i;
+    var att = document.createAttribute("id");  
+
+    function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;}
+
+    var id = randomString(3, '0123456789');
+
+    att.value = "lbNivel" + id;
+    var nivel = "lbNivel" + id;
     node.setAttributeNode(att);
     var textnode = document.createTextNode(btn);
     node.appendChild(textnode); 
     document.getElementById("txtIdiomaNivel").appendChild(node);    
     document.getElementById("txtIdiomaNivel").appendChild(btn);
-    document.getElementById("lbNivel").innerHTML = "Nivel de";
+    document.getElementById(nivel).innerHTML = "Nivel";
     document.getElementById("requiredNivel").required = true; 
     }
 }
