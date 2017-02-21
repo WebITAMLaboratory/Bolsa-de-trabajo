@@ -55,5 +55,15 @@ $(document).ready(function(){
         });
   });
 
+  btnFormulario.addEventListener("click",function(){
+    const nom = txtEmpresaNom.value;
+    const contacto = txtEmpresaContacto.value;
+    const tel = txtEmpresaTel.value;
+    const numVac = txtEmpresaVac.value;
+    const sueldoAprox = txtEmpresaSueldo.value;
+
+    llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox);
+
+  });
 
 });
