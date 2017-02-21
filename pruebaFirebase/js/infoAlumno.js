@@ -24,6 +24,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
   	}
   	else
   	{
+      res = false;
   		document.getElementById("txtAlumNom").innerHTML = "Nombre del alumno invalido";
   	}
   	//Clave unica
@@ -34,6 +35,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
   	}
   	else
   	{
+      res = false;
   		document.getElementById("txtAlumCU").innerHTML = "Clave unica invalida";
   	}
   	//número de alumno
@@ -44,6 +46,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
   	}
   	else
   	{
+      res = false;
   		document.getElementById("txtAlumTel").innerHTML = "Ingresa un número valido, solo números";
   	}
   	//carrera
@@ -54,6 +57,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
   	}
   	else
   	{
+      res = false;
   		document.getElementById("txtAlumCarrera").innerHTML = "Ingresa una carrera valida";
   	}
   	//semestre aproximado
@@ -64,6 +68,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
   	}
   	else
   	{
+      res = false;
   		document.getElementById("txtAlumSem").innerHTML = "Ingresa unsemestre aproximado mayor de 0";
   	}
     //Empresa interes
@@ -74,6 +79,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
     }
     else
     {
+      res = false;
       document.getElementById("txtAlumInteres1").innerHTML = "Ingresa tu empresa de interes";
     }
     if(interes != null && interes != "")
@@ -83,6 +89,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
     }
     else
     {
+      res = false;
       document.getElementById("txtAlumInteres2").innerHTML = "Ingresa tu empresa de interes";
     }
     if(interes != null && interes != "")
@@ -92,6 +99,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
     }
     else
     {
+      res = false;
       document.getElementById("txtAlumInteres3").innerHTML = "Ingresa tu empresa de interes";
     }
 

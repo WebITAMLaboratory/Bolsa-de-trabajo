@@ -17,6 +17,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	}
   	else
   	{
+      res = false;
   		document.getElementById("txtEmpresaNom").innerHTML = "Nombre de empresa invalido";
   	}
   	//nombre de contacto
@@ -27,6 +28,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	}
   	else
   	{
+      res = false;
   		document.getElementById("txtEmpresaContacto").innerHTML = "Nombre de Contacto Invalido";
   	}
   	//número de contacto
@@ -37,6 +39,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	}
   	else
   	{
+      res = false;
   		document.getElementById("txtEmpresaTel").innerHTML = "Ingresa un número valido, solo números";
   	}
   	//num de vacantes
@@ -47,6 +50,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	}
   	else
   	{
+      res = false;
   		document.getElementById("txtEmpresaVac").innerHTML = "Ingresa un número de vacantes valido, mayor o igual a 0";
   	}
   	//sueldo aproximado
@@ -57,6 +61,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	}
   	else
   	{
+      res = false;
   		document.getElementById("txtEmpresaSueldo").innerHTML = "Ingresa un sueldo aproximado sin SIGNO DE MONEDA";
   	}
 
