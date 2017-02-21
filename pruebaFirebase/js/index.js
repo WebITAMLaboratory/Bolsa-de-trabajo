@@ -40,6 +40,7 @@ $( document ).ready(function() {
 	btnLogin.addEventListener("click", function(){
 		const email = txtEmailLogin.value;
 		const password = txtPasswordLogin.value;
+		alert("entrando");
 		console.log("Trying to Login");
 		loginAlumno( email, password);
 		

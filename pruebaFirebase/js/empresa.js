@@ -18,34 +18,36 @@ var config = {
 */
 firebase.initializeApp(config);
 
-//Registro
-const btnRegister = document.getElementById("btnRegister");
-const txtEmail  = document.getElementById("txtEmail");
-const txtPassword  = document.getElementById("txtPassword");
-//Login
-const btnLogin = document.getElementById("btnLogin");
-const txtEmailLogin  = document.getElementById("txtEmailLogin");
-const txtPasswordLogin  = document.getElementById("txtPasswordLogin");
+$( document ).ready(function() {
+	//Registro
+	const btnRegister = document.getElementById("btnRegister");
+	const txtEmail  = document.getElementById("txtEmail");
+	const txtPassword  = document.getElementById("txtPassword");
+	//Login
+	const btnLogin = document.getElementById("btnLogin");
+	const txtEmailLogin  = document.getElementById("txtEmailLogin");
+	const txtPasswordLogin  = document.getElementById("txtPasswordLogin");
 
 
-//
-// ======================= LLEVAR A LA PAGINA DE INFORMACION SOBRE EL REGISTRO COMO EMRPRESA
-// ======================= CREAR LA BASE DE DATOS Y DAR SENTIDO QUE ES UNA EMPRESA
-// ======================= CREAR LA FORMA DE CONFIRMACION SOBRE LOS USOS DEL SITIO
-//
-//ADD register event
-btnRegister.addEventListener("click", function(){
-	const email = txtEmail.value;
-	const password = txtPassword.value;
-	registerEmpresa( email, password);
-	console.log("Trying to Register");
-});
+	//
+	// ======================= LLEVAR A LA PAGINA DE INFORMACION SOBRE EL REGISTRO COMO EMRPRESA
+	// ======================= CREAR LA BASE DE DATOS Y DAR SENTIDO QUE ES UNA EMPRESA
+	// ======================= CREAR LA FORMA DE CONFIRMACION SOBRE LOS USOS DEL SITIO
+	//
+	//ADD register event
+	btnRegister.addEventListener("click", function(){
+		const email = txtEmail.value;
+		const password = txtPassword.value;
+		registerEmpresa( email, password);
+		console.log("Trying to Register");
+	});
 
 
-//LOGIN register event
-btnLogin.addEventListener("click", function(){
-	const email = txtEmailLogin.value;
-	const password = txtPasswordLogin.value;
-	console.log("Trying to Login");
-	loginAlumno( email, password);
+	//LOGIN register event
+	btnLogin.addEventListener("click", function(){
+		const email = txtEmailLogin.value;
+		const password = txtPasswordLogin.value;
+		console.log("Trying to Login");
+		loginAlumno( email, password);
+	});
 });
