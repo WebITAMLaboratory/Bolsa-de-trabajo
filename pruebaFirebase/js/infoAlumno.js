@@ -17,7 +17,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
  var empresaInteres2;
 
   	// nombre alumno
-  	if(nom != null)
+  	if(nom != null && nom != "")
   	{
   		nombre = nom;
   		res = true;
@@ -27,7 +27,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
   		document.getElementById("txtAlumNom").innerHTML = "Nombre del alumno invalido";
   	}
   	//Clave unica
-  	if( cU != null)
+  	if( cU != null && cU != "")
   	{
   		claveU = cU;
   		res = true == res;
@@ -37,7 +37,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
   		document.getElementById("txtAlumCU").innerHTML = "Clave unica invalida";
   	}
   	//número de alumno
-  	if( tel != null)
+  	if( tel != null && tel != "")
   	{
   		telefono = tel;
   		res = true == res;
@@ -47,7 +47,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
   		document.getElementById("txtAlumTel").innerHTML = "Ingresa un número valido, solo números";
   	}
   	//carrera
-  	if( car != null)
+  	if( car != null && car != "")
   	{
   	carrera = car;
   		res = true == res;
@@ -57,7 +57,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
   		document.getElementById("txtAlumCarrera").innerHTML = "Ingresa una carrera valida";
   	}
   	//semestre aproximado
-  	if(semestre != null && semestre > 0)
+  	if(semestre != null && semestre != "" && semestre > 0)
   	{
   	semestreAprox =semestre;
   		res = true == res;
@@ -67,7 +67,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
   		document.getElementById("txtAlumSem").innerHTML = "Ingresa unsemestre aproximado mayor de 0";
   	}
     //Empresa interes
-    if(interes != null)
+    if(interes != null && interes != "")
     {
     empresaInteres =interes;
       res = true == res;
@@ -76,7 +76,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
     {
       document.getElementById("txtAlumInteres1").innerHTML = "Ingresa tu empresa de interes";
     }
-    if(interes != null)
+    if(interes != null && interes != "")
     {
     empresaInteres2 =interes2;
       res = true == res;
@@ -85,7 +85,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
     {
       document.getElementById("txtAlumInteres2").innerHTML = "Ingresa tu empresa de interes";
     }
-    if(interes != null)
+    if(interes != null && interes != "")
     {
     empresaInteres3 =interes3;
       res = true == res;

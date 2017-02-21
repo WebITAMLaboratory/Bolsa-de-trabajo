@@ -10,7 +10,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   	var  vacantes;
   	var  sueldo;
   	// nombre empresa
-  	if(nom != null)
+  	if(nom != null && nom != "")
   	{
   		nombre = nom;
   		res = true;
@@ -20,7 +20,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   		document.getElementById("txtEmpresaNom").innerHTML = "Nombre de empresa invalido";
   	}
   	//nombre de contacto
-  	if( contacto != null)
+  	if( contacto != null contacto != "")
   	{
   		cont = contacto;
   		res = true == res;
@@ -30,7 +30,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   		document.getElementById("txtEmpresaContacto").innerHTML = "Nombre de Contacto Invalido";
   	}
   	//número de contacto
-  	if( tel != null)
+  	if( tel != null tel != "")
   	{
   		telefono = tel;
   		res = true == res;
@@ -40,7 +40,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   		document.getElementById("txtEmpresaTel").innerHTML = "Ingresa un número valido, solo números";
   	}
   	//num de vacantes
-  	if( numVac != null && numVac >= 0)
+  	if( numVac != null numVac != "" && numVac >= 0)
   	{
   		vacantes = numVac;
   		res = true == res;
@@ -50,7 +50,7 @@ function llenaEmpresa(nom,contacto,tel,numVac,sueldoAprox){
   		document.getElementById("txtEmpresaVac").innerHTML = "Ingresa un número de vacantes valido, mayor o igual a 0";
   	}
   	//sueldo aproximado
-  	if( sueldoAprox != null && sueldoAprox >= 0)
+  	if( sueldoAprox != null sueldoAprox != "" && sueldoAprox >= 0)
   	{
   		sueldo = sueldoAprox;
   		res = true == res;
