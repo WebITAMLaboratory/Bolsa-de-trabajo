@@ -19,14 +19,20 @@ var config = {
   */
 
   $(document).ready(function(){
+
+
     /*lOG OUT PROCESS*/
     btnLogOut.addEventListener("click", function(){
-      firebase.auth().signOut().then(function() {
-        console.log("Sign-out successful");
-
-      }, function(error) {
-        console.log("An error happened.");
-        alert(error.message);
+      firebase.auth().signOut().then(function()
+      {
+        console.log("Sign Out!");
+        const location = (window.location.href);
+        const last = (window.location.href).lastIndexOf("/html");
+        window.location.replace(location.substr(0,last) + "/index.html");
+      }, function(error)
+      {
+        console.log(" ========== Coud not Sign Out! ==========");
+        // An error happened.
       });
     });
 
@@ -66,7 +72,6 @@ var config = {
       var btn2 ="";
       if (btn!=btn2) {
         var btn2 = btn
-
 
         var node = document.createElement("INPUT");               
         var att = document.createAttribute("class");       
