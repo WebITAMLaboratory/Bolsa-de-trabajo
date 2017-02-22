@@ -4,7 +4,7 @@
 
 //LLenado de base de datos
 
-function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
+function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3,idioma){
 
  var res = false;
  var nombre;
@@ -15,6 +15,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
  var empresaInteres;
  var empresaInteres1;
  var empresaInteres2;
+ var idiom;
 
   	// nombre alumno
   	if(nom != null && nom != "")
@@ -102,6 +103,17 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
       res = false;
       document.getElementById("txtAlumInteres3").innerHTML = "Ingresa tu empresa de interes";
     }
+     // Idiomas
+    if(idioma != null && idioma != "")
+    {
+      idiom = idioma;
+      res = true;
+    }
+    else
+    {
+      res = false;
+      //document.getElementById("txtAlumNom").innerHTML = "idioma invalida";
+    }
 
 
   	if(res)
@@ -125,7 +137,8 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
         Semestre: semestre,
         Empresa1: empresaInteres,
         Empresa2: empresaInteres2,
-        Empresa3: empresaInteres3
+        Empresa3: empresaInteres3,
+        Idiomas: idiom
       }).then(function(){
        firebase.database().ref(urlUsers).set({
         Tipo : "Alumno",
@@ -146,4 +159,5 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3){
     }
 
   }
+  
   

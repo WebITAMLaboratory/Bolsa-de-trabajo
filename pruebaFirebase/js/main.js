@@ -18,6 +18,11 @@ var config = {
   };
   */
 
+  var num=0;
+  var idiomaYnivel = [];
+  var idiomas;
+ 
+
   $(document).ready(function(){
 
 
@@ -62,15 +67,43 @@ var config = {
       const interes2 = txtAlumInteres2.value;
       const interes3 = txtAlumInteres3.value;
 
-      llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3);
+      llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3,idiomas);
     });
+
 });
+
+  function idiomas(){
+
+     for (var i =0 ; i <=$(':input').length - 12; i++) {
+        
+        var varIdioma =document.getElementById("lbNivel"+i).textContent;
+        var varNivel =document.getElementById("requiredNivel"+i).value;
+        idiomaYnivel.push(varIdioma.substr(8, 20)+": " + varNivel);
+      }
+      var arrayLength = idiomaYnivel.length;
+        idiomas=idiomaYnivel.join();      
+  }
+
+
+
+  
+
 
   function displayIdioma() {
       var strIdioma = $("#selectAlumIdiomas :selected").text();
-      var btn = document.createTextNode(" de " + strIdioma);
+      var btn = document.createTextNode(strIdioma);
       var btn2 ="";
       if (btn!=btn2) {
+        
+        function more(length, chars) {
+          var result = '';
+          for (var i = length; i > 0; --i) 
+            result += chars[Math.round(Math.random())];
+            return result;
+        }
+
+        var id = num++
+
         var btn2 = btn
 
         var node = document.createElement("INPUT");               
@@ -81,10 +114,8 @@ var config = {
         att.value = "text";
         node.setAttributeNode(att);
         var att = document.createAttribute("id");       
-        att.value = "requiredNivel";
-        node.setAttributeNode(att);
-        var textnode = document.createTextNode(btn);        
-        node.appendChild(textnode);                             
+        att.value = "requiredNivel" + id;
+        node.setAttributeNode(att);                            
         document.getElementById("txtIdiomaNivel").appendChild(node);
 
         var node = document.createElement("LABEL");               
@@ -93,22 +124,16 @@ var config = {
         node.setAttributeNode(att);
         var att = document.createAttribute("id");  
 
-        function randomString(length, chars) {
-          var result = '';
-          for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
-            return result;
-        }
+        
 
-          var id = randomString(3, '0123456789');
+          
 
           att.value = "lbNivel" + id;
           var nivel = "lbNivel" + id;
           node.setAttributeNode(att);
-          var textnode = document.createTextNode(btn);
-          node.appendChild(textnode); 
           document.getElementById("txtIdiomaNivel").appendChild(node);    
-          document.getElementById("txtIdiomaNivel").appendChild(btn);
-          document.getElementById(nivel).innerHTML = "Nivel";
-          document.getElementById("requiredNivel").required = true; 
+          document.getElementById(nivel).innerHTML = "Nivel de " + strIdioma;
+          document.getElementById("requiredNivel" + id).required = true;
+
         }
       }
