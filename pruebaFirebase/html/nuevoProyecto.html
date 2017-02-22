@@ -45,7 +45,7 @@
 						<div class="w3-padding">
 						<!--Nombre Proyecto-->
 						<p >
-							<span class="w3-text-red" id="txtErrorEmpresaContacto">
+							<span class="w3-text-red" id="txtErrorNombreProyecto">
 
 							</span>
 							<label class="w3-label w3-validate">Nombre del Proyecto</label>
@@ -57,7 +57,7 @@
 
 								</span>
 								<label class="w3-label">Breve descripción del Proyecto</label>
-								<textarea class="w3-input w3-border" style="resize:none"></textarea>
+								<textarea class="w3-input w3-border" style="resize:none" id="txtDescripcion"></textarea>
 								
 							</p>
 							<!--Sector-->
@@ -66,7 +66,7 @@
 
 								</span>
 								<label class="w3-label w3-validate">Sector o área del trabajo</label>
-								<input class="w3-input" type="text" id="txtArea" required>
+								<input class="w3-input" type="text" id="txtArea" placeholder="Financiero,Gobierno,..." required>
 							</p>
 							<!--Perfil Buscado-->
 							<p>
@@ -82,7 +82,7 @@
 
 								</span>
 								<label class="w3-label w3-validate">Número de Vacantes</label>
-								<input class="w3-input" type="number" id="txtVacantes" required>
+								<input class="w3-input" type="number" id="txtVacantes" placeholder="2 , 4, ..." required>
 							</p>
 							<!--Sueldo Aproximado-->
 							<p>
@@ -90,7 +90,7 @@
 
 								</span>
 								<label class="w3-label w3-validate">Sueldo</label>
-								<input class="w3-input" type="number" id="txtSueldo" required>
+								<input class="w3-input" type="number" id="txtSueldo" placeholder="10000, 5000, ..." required>
 							</p>
 							<!--Direccion-->
 							<p>
@@ -98,11 +98,11 @@
 
 								</span>
 								<label class="w3-label w3-validate">Dirección dónde se trabajaría</label>
-								<input class="w3-input" type="text" id="txtDireccion" required>
+								<input class="w3-input" type="text" id="txtDireccion"  required>
 							</p>
 
 
-							<button class="w3-btn w3-green clickable w3-left" id="btnFormulario">Terminar</button>
+							<button class="w3-btn w3-green clickable w3-left" id="btnFormulario">Crear</button>
 						</div>
 					</div>
 				</div>
@@ -117,5 +117,7 @@
 		</h3>
 	</footer>
 	<script src="../js/homeEmpresa.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="../js/functionsEmpresa.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="../js/infoProyecto.js" type="text/javascript" charset="utf-8" ></script>
 </body>
 </html>
