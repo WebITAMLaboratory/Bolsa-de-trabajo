@@ -84,9 +84,21 @@ var config = {
         idiomas=idiomaYnivel.join();      
   }
 
-
-
-  
+  function prueba(){
+  var selectUso = document.querySelectorAll("select");
+  var largoUso = selectUso.length-1;
+  for (var i =0 ; i <largoUso; i++) {        
+        var varIdioma =document.getElementById("lbNivel"+i).innerText;
+        var varNivel =document.getElementById("requiredNivel"+i);
+        var textNivel= varNivel.options[varNivel.selectedIndex].text;        
+        idiomaYnivel.push(varIdioma.substr(8, 20)+": " + textNivel);
+        alert(varIdioma + textNivel);
+        alert("largo: " + largoUso + " i: " + i);
+      }
+      var arrayLength = idiomaYnivel.length;
+        idiomas=idiomaYnivel.join();
+        alert(idiomas);
+  } 
 
 
   function displayIdioma() {
@@ -106,34 +118,56 @@ var config = {
 
         var btn2 = btn
 
-        var node = document.createElement("INPUT");               
+        //CREA PLACEHOLDER
+        var node = document.createElement("SELECT");               
         var att = document.createAttribute("class");       
-        att.value = "w3-input";
+        att.value = "w3-select";
         node.setAttributeNode(att);
-        var att = document.createAttribute("type");       
-        att.value = "text";
+        var att = document.createAttribute("data-placeholder");       
+        att.value = "Choose a Level...";
         node.setAttributeNode(att);
         var att = document.createAttribute("id");       
         att.value = "requiredNivel" + id;
+        var requieredNivel = "requiredNivel" + id;
         node.setAttributeNode(att);                            
         document.getElementById("txtIdiomaNivel").appendChild(node);
+
+        //Crea options
+        var option1 = document.createElement("Option");        
+        var att1 = document.createAttribute("class");       
+        att1.value = "valorOption1";
+        option1.setAttributeNode(att1);
+        option1.text = "Basico";
+        var x = document.getElementById(requieredNivel);
+        x.add(option1);
+
+        var option2 = document.createElement("Option");
+        var att2 = document.createAttribute("class");       
+        att2.value = "valorOption2";
+        option2.setAttributeNode(att2);
+        option2.text = "Intermedio";
+        x.add(option2);
+
+        var option3 = document.createElement("Option");
+        var att3 = document.createAttribute("class");       
+        att3.value = "valorOption3";
+        option3.setAttributeNode(att3);
+        option3.text = "Avanzado";
+        x.add(option3);
+
 
         var node = document.createElement("LABEL");               
         var att = document.createAttribute("class");       
         att.value = "w3-label w3-validate";
         node.setAttributeNode(att);
-        var att = document.createAttribute("id");  
-
+        var att = document.createAttribute("id");
+        att.value = "lbNivel" + id;
+        var nivel = "lbNivel" + id;
+        node.setAttributeNode(att);
         
-
-          
-
-          att.value = "lbNivel" + id;
-          var nivel = "lbNivel" + id;
-          node.setAttributeNode(att);
-          document.getElementById("txtIdiomaNivel").appendChild(node);    
-          document.getElementById(nivel).innerHTML = "Nivel de " + strIdioma;
-          document.getElementById("requiredNivel" + id).required = true;
+        document.getElementById("txtIdiomaNivel").appendChild(node);    
+        document.getElementById(nivel).innerHTML = "Nivel de " + strIdioma;
+        document.getElementById("requiredNivel" + id).required = true;
 
         }
       }
