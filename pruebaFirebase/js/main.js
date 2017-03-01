@@ -74,30 +74,20 @@ var config = {
 
   function idiomas(){
 
-     for (var i =0 ; i <=$(':input').length - 12; i++) {
-        
-        var varIdioma =document.getElementById("lbNivel"+i).textContent;
-        var varNivel =document.getElementById("requiredNivel"+i).value;
-        idiomaYnivel.push(varIdioma.substr(8, 20)+": " + varNivel);
-      }
-      var arrayLength = idiomaYnivel.length;
-        idiomas=idiomaYnivel.join();      
-  }
-
-  function prueba(){
-  var selectUso = document.querySelectorAll("select");
+     var selectUso = document.querySelectorAll("select");
   var largoUso = selectUso.length-1;
   for (var i =0 ; i <largoUso; i++) {        
         var varIdioma =document.getElementById("lbNivel"+i).innerText;
         var varNivel =document.getElementById("requiredNivel"+i);
         var textNivel= varNivel.options[varNivel.selectedIndex].text;        
         idiomaYnivel.push(varIdioma.substr(8, 20)+": " + textNivel);
-        alert(varIdioma + textNivel);
-        alert("largo: " + largoUso + " i: " + i);
       }
       var arrayLength = idiomaYnivel.length;
-        idiomas=idiomaYnivel.join();
-        alert(idiomas);
+        idiomas=idiomaYnivel.join();     
+  }
+
+  function prueba(){
+
   } 
 
 
