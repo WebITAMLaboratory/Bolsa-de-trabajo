@@ -68,10 +68,16 @@
 							<!--Carrera-->
 							<p>
 								<span class="w3-text-red" id="txtErrorAlumCarrera">
-
 								</span>
-								<input class="w3-input" type="text" id="txtAlumCarrera" required>
-								<label class="w3-label w3-validate">Carrera</label>
+								<form onchange="displayCarrera()">
+								  <input type="radio" id="licenciatura" name="Plan" value="Licenciatura">Licenciatura<br>
+								  <input type="radio" id="planConjunto" name="Plan" value="Plan conjunto">Plan conjunto<br>
+								</form>
+								<p id="Carrera">							
+									
+								</p>
+								<br>
+								<label class="w3-label w3-validate" id="idioma">Carrera: </label>
 							</p>
 							<!--Semestre-->
 							<p>

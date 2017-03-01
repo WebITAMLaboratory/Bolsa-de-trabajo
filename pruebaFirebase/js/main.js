@@ -86,10 +86,6 @@ var config = {
         idiomas=idiomaYnivel.join();     
   }
 
-  function prueba(){
-
-  } 
-
 
   function displayIdioma() {
       var strIdioma = $("#selectAlumIdiomas :selected").text();
@@ -158,6 +154,153 @@ var config = {
         document.getElementById("txtIdiomaNivel").appendChild(node);    
         document.getElementById(nivel).innerHTML = "Nivel de " + strIdioma;
         document.getElementById("requiredNivel" + id).required = true;
+        }
+      }
 
+      function displayCarrera() {
+        if(document.getElementById('licenciatura').checked) {
+          var node = document.createElement("SELECT");               
+          var att = document.createAttribute("class");       
+          att.value = "w3-select";
+          node.setAttributeNode(att);
+          var att = document.createAttribute("data-placeholder");       
+          att.value = "Choose a Career...";
+          node.setAttributeNode(att);
+          var att = document.createAttribute("id");       
+          att.value = "Career";
+          var Career = "Career";
+          node.setAttributeNode(att);                            
+          document.getElementById("Carrera").appendChild(node);
+
+          //Crea options
+          var option1 = document.createElement("Option");        
+          var att1 = document.createAttribute("class");       
+          att1.value = "valorOption1";
+          option1.setAttributeNode(att1);
+          option1.text = "Administracion";
+          var x = document.getElementById(Career);
+          x.add(option1);
+
+          var option2 = document.createElement("Option");
+          var att2 = document.createAttribute("class");       
+          att2.value = "valorOption2";
+          option2.setAttributeNode(att2);
+          option2.text = "Contaduría Pública y Estrategia Financiera";
+          x.add(option2);
+
+          var option3 = document.createElement("Option");
+          var att3 = document.createAttribute("class");       
+          att3.value = "valorOption3";
+          option3.setAttributeNode(att3);
+          option3.text = "Dirección Financiera";
+          x.add(option3);
+
+          var option4 = document.createElement("Option");
+          var att4 = document.createAttribute("class");       
+          att4.value = "valorOption4";
+          option4.setAttributeNode(att4);
+          option4.text = "Ingeniería en Negocios";
+          x.add(option4);
+
+          var option5 = document.createElement("Option");
+          var att5 = document.createAttribute("class");       
+          att5.value = "valorOption5";
+          option5.setAttributeNode(att5);
+          option5.text = "Ingeniería en Computación";
+          x.add(option5);
+
+          var option6 = document.createElement("Option");
+          var att6 = document.createAttribute("class");       
+          att6.value = "valorOption6";
+          option6.setAttributeNode(att6);
+          option6.text = "Ingeniería Industrial";
+          x.add(option6);
+
+          var option7 = document.createElement("Option");
+          var att7 = document.createAttribute("class");       
+          att7.value = "valorOption7";
+          option7.setAttributeNode(att7);
+          option7.text = "Ingeniería en Mecatrónica";
+          x.add(option7);
+
+          var option8 = document.createElement("Option");
+          var att8 = document.createAttribute("class");       
+          att8.value = "valorOption8";
+          option8.setAttributeNode(att8);
+          option8.text = "Ingeniería en Telecomunicaciones";
+          x.add(option8);
+
+
+        }else if(document.getElementById('planConjunto').checked) {
+          var node = document.createElement("SELECT");               
+          var att = document.createAttribute("class");       
+          att.value = "w3-select";
+          node.setAttributeNode(att);
+          var att = document.createAttribute("data-placeholder");       
+          att.value = "Choose a Career...";
+          node.setAttributeNode(att);
+          var att = document.createAttribute("id");       
+          att.value = "Career";
+          var Career = "Career";
+          node.setAttributeNode(att);                            
+          document.getElementById("Carrera").appendChild(node);
+
+          //Crea options
+          var option1 = document.createElement("Option");        
+          var att1 = document.createAttribute("class");       
+          att1.value = "valorOption1";
+          option1.setAttributeNode(att1);
+          option1.text = "Administracion";
+          var x = document.getElementById(Career);
+          x.add(option1);
+
+          var option2 = document.createElement("Option");
+          var att2 = document.createAttribute("class");       
+          att2.value = "valorOption2";
+          option2.setAttributeNode(att2);
+          option2.text = "Contaduría Pública y Estrategia Financiera";
+          x.add(option2);
+
+          var option3 = document.createElement("Option");
+          var att3 = document.createAttribute("class");       
+          att3.value = "valorOption3";
+          option3.setAttributeNode(att3);
+          option3.text = "Dirección Financiera";
+          x.add(option3);
+
+          var option4 = document.createElement("Option");
+          var att4 = document.createAttribute("class");       
+          att4.value = "valorOption4";
+          option4.setAttributeNode(att4);
+          option4.text = "Ingeniería en Negocios";
+          x.add(option4);
+
+          var option5 = document.createElement("Option");
+          var att5 = document.createAttribute("class");       
+          att5.value = "valorOption5";
+          option5.setAttributeNode(att5);
+          option5.text = "Ingeniería en Computación";
+          x.add(option5);
+
+          var option6 = document.createElement("Option");
+          var att6 = document.createAttribute("class");       
+          att6.value = "valorOption6";
+          option6.setAttributeNode(att6);
+          option6.text = "Ingeniería Industrial";
+          x.add(option6);
+
+          var option7 = document.createElement("Option");
+          var att7 = document.createAttribute("class");       
+          att7.value = "valorOption7";
+          option7.setAttributeNode(att7);
+          option7.text = "Ingeniería en Mecatrónica";
+          x.add(option7);
+
+          var option8 = document.createElement("Option");
+          var att8 = document.createAttribute("class");       
+          att8.value = "valorOption8";
+          option8.setAttributeNode(att8);
+          option8.text = "Ingeniería en Telecomunicaciones";
+          x.add(option8);
         }
       }
