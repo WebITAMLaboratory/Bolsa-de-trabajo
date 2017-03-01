@@ -159,6 +159,10 @@ var config = {
 
       function displayCarrera() {
         if(document.getElementById('licenciatura').checked) {
+          if (document.getElementById("JointPlan")) {            
+            var elem2 = document.getElementById("JointPlan");
+            elem2.parentNode.removeChild(elem2);            
+          }
           var node = document.createElement("SELECT");               
           var att = document.createAttribute("class");       
           att.value = "w3-select";
@@ -230,9 +234,11 @@ var config = {
           option08.text = "Ingeniería en Telecomunicaciones";
           x.add(option08);
 
-
         }else if(document.getElementById('planConjunto').checked) {
-          
+          if (document.getElementById("Career")) {            
+            var elem2 = document.getElementById("Career");
+            elem2.parentNode.removeChild(elem2);            
+          }
           var node = document.createElement("SELECT");               
           var att = document.createAttribute("class");       
           att.value = "w3-select";
