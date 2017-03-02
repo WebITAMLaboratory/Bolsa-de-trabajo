@@ -21,7 +21,8 @@ var config = {
   var num=0;
   var idiomaYnivel = [];
   var idiomas;
- 
+  var car;
+
 
   $(document).ready(function(){
 
@@ -44,65 +45,82 @@ var config = {
 
     
 
-      const btnFormulario = document.getElementById("btnFormulario");
+    const btnFormulario = document.getElementById("btnFormulario");
 
     //text
     const txtAlumNom = document.getElementById("txtAlumNom");
     const txtAlumCU = document.getElementById("txtAlumCU");
     const txtAlumTel = document.getElementById("txtAlumTel");
-    const txtAlumCarrera = document.getElementById("txtAlumCarrera");
     const txtAlumSem = document.getElementById("txtAlumSem");
 
     const txtAlumInteres1 = document.getElementById("txtAlumInteres1");
     const txtAlumInteres2 = document.getElementById("txtAlumInteres2");
     const txtAlumInteres3 = document.getElementById("txtAlumInteres3");
 
+    const txtAlumArea1 = document.getElementById("txtAlumArea1");
+    const txtAlumArea2 = document.getElementById("txtAlumArea2");
+    const txtAlumArea3 = document.getElementById("txtAlumArea3");
+
     btnFormulario.addEventListener("click",function(){
       const nom = txtAlumNom.value;
       const cU = txtAlumCU.value;
       const tel = txtAlumTel.value;
-      const car = txtAlumCarrera.value;
       const semestre = txtAlumSem.value;
       const interes = txtAlumInteres1.value;
       const interes2 = txtAlumInteres2.value;
       const interes3 = txtAlumInteres3.value;
+      
+      const areaInteres = txtAlumArea1.value;
+      const areaInteres2 = txtAlumArea2.value;
+      const areaInteres3 = txtAlumArea3.value;
 
-      llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3,idiomas);
+      llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaInteres2, interes3,areaInteres3, idiomas);
     });
 
-});
+  });
 
   function idiomas(){
-
-     var selectUso = document.querySelectorAll("select");
-  var largoUso = selectUso.length-1;
-  for (var i =0 ; i <largoUso; i++) {        
-        var varIdioma =document.getElementById("lbNivel"+i).innerText;
-        var varNivel =document.getElementById("requiredNivel"+i);
-        var textNivel= varNivel.options[varNivel.selectedIndex].text;        
-        idiomaYnivel.push(varIdioma.substr(8, 20)+": " + textNivel);
-      }
-      var arrayLength = idiomaYnivel.length;
-        idiomas=idiomaYnivel.join();     
+   var selectUso = document.querySelectorAll("select");
+   var largoUso = selectUso.length-2;
+  
+   for (var i =0 ; i <largoUso; i++) {  
+      
+    var varIdioma =document.getElementById("lbNivel"+i).innerText;
+    var varNivel =document.getElementById("requiredNivel"+i);
+    var textNivel= varNivel.options[varNivel.selectedIndex].text;        
+    idiomaYnivel.push(varIdioma.substr(8, 20)+": " + textNivel);
   }
+  
+  var arrayLength = idiomaYnivel.length;
+  idiomas=idiomaYnivel.join();
+
+  if (document.getElementById("Career")) {            
+    var carrera = document.getElementById("Career").selectedIndex;
+    car=document.getElementsByTagName("option")[carrera].value;           
+  }else if(document.getElementById("JointPlan")){
+    var jointPlan = document.getElementById("JointPlan").selectedIndex;
+    car=document.getElementsByTagName("option")[jointPlan].value;
+  } 
+ 
+}
 
 
-  function displayIdioma() {
-      var strIdioma = $("#selectAlumIdiomas :selected").text();
-      var btn = document.createTextNode(strIdioma);
-      var btn2 ="";
-      if (btn!=btn2) {
-        
-        function more(length, chars) {
-          var result = '';
-          for (var i = length; i > 0; --i) 
-            result += chars[Math.round(Math.random())];
-            return result;
-        }
+function displayIdioma() {
+  var strIdioma = $("#selectAlumIdiomas :selected").text();
+  var btn = document.createTextNode(strIdioma);
+  var btn2 ="";
+  if (btn!=btn2) {
 
-        var id = num++
+    function more(length, chars) {
+      var result = '';
+      for (var i = length; i > 0; --i) 
+        result += chars[Math.round(Math.random())];
+      return result;
+    }
 
-        var btn2 = btn
+    var id = num++
+
+    var btn2 = btn
 
         //CREA PLACEHOLDER
         var node = document.createElement("SELECT");               
@@ -154,27 +172,27 @@ var config = {
         document.getElementById("txtIdiomaNivel").appendChild(node);    
         document.getElementById(nivel).innerHTML = "Nivel de " + strIdioma;
         document.getElementById("requiredNivel" + id).required = true;
-        }
       }
+    }
 
-      function displayCarrera() {
-        if(document.getElementById('licenciatura').checked) {
-          if (document.getElementById("JointPlan")) {            
-            var elem2 = document.getElementById("JointPlan");
-            elem2.parentNode.removeChild(elem2);            
-          }
-          var node = document.createElement("SELECT");               
-          var att = document.createAttribute("class");       
-          att.value = "w3-select";
-          node.setAttributeNode(att);
-          var att = document.createAttribute("data-placeholder");       
-          att.value = "Choose a Career...";
-          node.setAttributeNode(att);
-          var att = document.createAttribute("id");       
-          att.value = "Career";
-          var Career = "Career";
-          node.setAttributeNode(att);                            
-          document.getElementById("Carrera").appendChild(node);
+    function displayCarrera() {
+      if(document.getElementById('licenciatura').checked) {
+        if (document.getElementById("JointPlan")) {            
+          var elem2 = document.getElementById("JointPlan");
+          elem2.parentNode.removeChild(elem2);            
+        }
+        var node = document.createElement("SELECT");               
+        var att = document.createAttribute("class");       
+        att.value = "w3-select";
+        node.setAttributeNode(att);
+        var att = document.createAttribute("data-placeholder");       
+        att.value = "Choose a Career...";
+        node.setAttributeNode(att);
+        var att = document.createAttribute("id");       
+        att.value = "Career";
+        var Career = "Career";
+        node.setAttributeNode(att);                            
+        document.getElementById("Carrera").appendChild(node);
 
           //Crea options
           var option01 = document.createElement("Option");        

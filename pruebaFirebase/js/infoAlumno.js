@@ -4,7 +4,7 @@
 
 //LLenado de base de datos
 
-function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3,idioma){
+function llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaInteres2, interes3,areaInteres3, idioma){
 
  var res = false;
  var nombre;
@@ -13,8 +13,11 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3,idioma)
  var carrera;
  var semestreAprox;
  var empresaInteres;
- var empresaInteres1;
+ var alumArea1;
  var empresaInteres2;
+ var alumArea2;
+ var empresaInteres3;
+ var alumArea3;
  var idiom;
 
   	// nombre alumno
@@ -83,6 +86,17 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3,idioma)
       res = false;
       document.getElementById("txtAlumInteres1").innerHTML = "Ingresa tu empresa de interes";
     }
+    //////////////////////////////////////////////////////////////////////////////
+     if(areaInteres != null && areaInteres != "")
+    {
+    alumArea1 =areaInteres;
+      res = true == res;
+    }
+    else
+    {
+      res = false;
+      document.getElementById("txtAlumInteres1").innerHTML = "Ingresa tu Area de interes";
+    }
     if(interes != null && interes != "")
     {
     empresaInteres2 =interes2;
@@ -93,6 +107,16 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3,idioma)
       res = false;
       document.getElementById("txtAlumInteres2").innerHTML = "Ingresa tu empresa de interes";
     }
+    if(areaInteres2 != null && areaInteres2 != "")
+    {
+    alumArea2 =areaInteres2;
+      res = true == res;
+    }
+    else
+    {
+      res = false;
+      document.getElementById("txtAlumInteres1").innerHTML = "Ingresa tu Area de interes";
+    }
     if(interes != null && interes != "")
     {
     empresaInteres3 =interes3;
@@ -102,6 +126,16 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3,idioma)
     {
       res = false;
       document.getElementById("txtAlumInteres3").innerHTML = "Ingresa tu empresa de interes";
+    }
+    if(areaInteres3 != null && areaInteres3 != "")
+    {
+    alumArea3 =areaInteres3;
+      res = true == res;
+    }
+    else
+    {
+      res = false;
+      document.getElementById("txtAlumInteres1").innerHTML = "Ingresa tu Area de interes";
     }
      // Idiomas
     if(idioma != null && idioma != "")
@@ -136,8 +170,11 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes, interes2, interes3,idioma)
         Carrera: carrera,
         Semestre: semestre,
         Empresa1: empresaInteres,
+        AreaInteres1: alumArea1,
         Empresa2: empresaInteres2,
+        AreaInteres2: alumArea2,
         Empresa3: empresaInteres3,
+        AreaInteres3: alumArea3,
         Idiomas: idiom
       }).then(function(){
        firebase.database().ref(urlUsers).set({
