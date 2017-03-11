@@ -1,11 +1,24 @@
 // Initialize Firebase
 var config = {
+    apiKey: "AIzaSyByyIfhuIL9e0tvhwUqkGCWKcGBTGGBLO0",
+    authDomain: "prueba-urgente.firebaseapp.com",
+    databaseURL: "https://prueba-urgente.firebaseio.com",
+    storageBucket: "prueba-urgente.appspot.com",
+    messagingSenderId: "483313675253"
+  };
+
+
+
+/*
+var config = {
 	apiKey: "AIzaSyBxrNMp2TQU8y72jkRRGLSdJq2-2N3jNRw",
 	authDomain: "prueba-proyecto-39eb7.firebaseapp.com",
 	databaseURL: "https://prueba-proyecto-39eb7.firebaseio.com",
 	storageBucket: "prueba-proyecto-39eb7.appspot.com",
 	messagingSenderId: "356288809556"
 };
+*/
+
 firebase.initializeApp(config);
 /*
 var config = {
@@ -17,32 +30,188 @@ var config = {
 };
 */
 
+// GLOBAL FUNCTIONS ============================================================================
+//==============================================================================================
+	
+	//EMAIL VERIFICATION ===================================================
+	function ValidateEmail(mail) 
+	{
+	 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(mail))
+	  {
+	    return (true)
+	  }
+	    return (false)
+	}
+
+	// REGISTER ALUMNO ==================================================
+	function registerAlumno(email,password){
+
+		var mail = email;
+		var pass = password;
+		var error = $("#txtError");
+			if((mail.trim()) && (pass.trim()))
+			{	
+				if(mail.includes('itam.mx'))
+				{
+					if(ValidateEmail(mail))
+					{
+						firebase.auth().createUserWithEmailAndPassword(mail.trim(), pass.trim())
+						.then(function(){
+							alert("Registro exitoso");
+						})
+						.catch(function(error) {
+					   		//Handle Errors here.
+					    	var errorCode = error.code;
+					    	var errorMessage = error.message;
+					    	console.log(errorCode + "\n" + errorMessage);
+					    	$("#txtError").text(errorMessage);
+				    	});
+				    }
+				    else
+					{
+						error.text("Email invalido, vuelvelo a intentar");
+						console.log("Please enter Email and Password");
+					} 
+				}
+				else
+				{
+					error.html("Solo correos correo@itam.mx");
+					console.log("========== ERROR COULD NOT REGISTER ==========");
+				}
+			}
+			else
+			{
+				error.text("");
+				if(!mail.trim())
+				{
+					error.text("Registra un correo valido\n");
+			    }
+				if(!pass.trim()){
+					error.text(error.text() + "Registra una contraseña valida");
+				}
+			}
+	};
+
+	//LOGIN Alumno ===============================================
+	function loginAlumno(email,password){
+
+		var mail = email;
+		var pass = password;
+		var error = $("#txtErrorLogin");
+		if((mail.trim()) && (pass.trim()))
+		{	
+			if(mail.includes('itam.mx'))
+			{
+				if(ValidateEmail(mail))
+				{
+					firebase.auth().signInWithEmailAndPassword(mail, pass)
+					.then(function(){
+						console.log("========== Login Succesfull! ========== \n ----- Welcome : " + mail);
+					})
+					.catch(function(error) {
+					   // Handle Errors here.
+					   var errorCode = error.code;
+					   var errorMessage = error.message;
+					   console.log(errorCode + "\n" + errorMessage);
+					   console.log("========== ERROR COULD NOT LOGIN ==========");
+					   $("#txtErrorLogin").text(errorMessage);
+					 });
+				}
+				else
+				{
+					error.text("Email invalido, vuelvelo a intentar");
+					console.log("Please enter Email and Password");
+				}
+			}
+			else
+			{
+				error.html("Solo correos correo@itam.mx");
+				console.log("========== ERROR COULD NOT REGISTER ==========");
+			}
+		}
+		else
+		{
+			error.text("");
+				if(!mail.trim())
+				{
+					error.text("Ingresa un correo valido\n");
+			    }
+				if(!pass.trim()){
+					error.text(error.text() + "Ingresa una contraseña valida");
+				}
+		}
+	};
+
+	//ON LOGIN OR LOGOUT =============================================================
+	firebase.auth().onAuthStateChanged(function(user) {
+		  if (user)
+		  {	
+		  	if(firebase.auth().currentUser.emailVerified)
+		  	{
+		  		//window.location.replace("http://practicasdeverano.itam.mx/html/homeAlumno.html");
+		  		window.location.href = ("./html/homeAlumno.html");
+		  	}
+		  	else
+		  	{
+		  		//get user id
+		  		var userId = firebase.auth().currentUser.uid;
+		  		
+				firebase.database().ref("/users/"+userId).once('value', function(snapshot) {
+				    var exists = (snapshot.val() !== null);
+				    if(exists)
+				    {   
+				    	//check if user has filled form
+						var form = false;
+						var a = snapshot.val().Registro;
+						form = a;		
+						if(form)
+						{
+							//window.location.href = ("http://practicasdeverano.itam.mx/html/verificacion.html");
+							window.location.href = ("./html/verificacion.html");
+						}
+						else
+						{
+							//window.location.href = ("http://practicasdeverano.itam.mx/html/mainAlumno.html");
+							window.location.href = ("./html/mainAlumno.html");
+
+						}
+				    }
+				    else
+				    {
+				    	//user has not filled form
+				    	//window.location.href = ("http://practicasdeverano.itam.mx/html/mainAlumno.html");
+				    	window.location.href = ("./html/mainAlumno.html");
+				    }
+				});
+		  	}
+		  } 
+		  else 
+		  {
+		  	     
+		  		console.log("No user");
+          
+		  }
+	});
+
+// GLOBAL FUNCTIONS  END ============================================================================
+//===================================================================================================
+
 $( document ).ready(function() {
-	//Registro
-	const btnRegister = document.getElementById("btnRegister");
-	const txtEmail  = document.getElementById("txtEmail");
-	const txtPassword  = document.getElementById("txtPassword");
-	//Login
-	const btnLogin = document.getElementById("btnLogin");
-	const txtEmailLogin  = document.getElementById("txtEmailLogin");
-	const txtPasswordLogin  = document.getElementById("txtPasswordLogin");
-
-	//ADD register event
-	btnRegister.addEventListener("click", function(){
-		const email = txtEmail.value;
-		const password = txtPassword.value;
-		registerAlumno( email, password);
-		console.log("Trying to Register");
+	
+	//ON REGISTER
+	$("#btnRegister").click(function(){
+		var email = $("#txtEmail").val();
+		var password = $("#txtPassword").val();
+		//register an alumni
+		registerAlumno(email,password);
 	});
 
-
-	//LOGIN register event
-	btnLogin.addEventListener("click", function(){
-		const email = txtEmailLogin.value;
-		const password = txtPasswordLogin.value;
-		alert("entrando");
-		console.log("Trying to Login");
-		loginAlumno( email, password);
-		
+    //ON LOGIN
+	$("#btnLogin").click(function(){
+		var email = $("#txtEmailLogin").val();
+		var password = $("#txtPasswordLogin").val();
+		//login alumni
+		loginAlumno(email,password)
 	});
+
 });

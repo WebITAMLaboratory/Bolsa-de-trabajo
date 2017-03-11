@@ -44,7 +44,7 @@ var config = {
 		});
 	};
 
-	//ON LOGIN OR LOGOUT ============================================================================================
+	//ON LOGIN OR LOGOUT ========================================================================================
 	firebase.auth().onAuthStateChanged(function(user) {
 		  if (user)
 		  {
@@ -53,7 +53,7 @@ var config = {
 		  else 
 		  {
 		  	//window.location.href = ("http://practicasdeverano.itam.mx/");
-							window.location.href = ("../index.html");
+			window.location.href = ("./empresa.html");
     
 		  }
 	});

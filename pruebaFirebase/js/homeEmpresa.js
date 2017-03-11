@@ -1,48 +1,56 @@
 // Initialize Firebase
-
 var config = {
-	apiKey: "AIzaSyBxrNMp2TQU8y72jkRRGLSdJq2-2N3jNRw",
-	authDomain: "prueba-proyecto-39eb7.firebaseapp.com",
-	databaseURL: "https://prueba-proyecto-39eb7.firebaseio.com",
-	storageBucket: "prueba-proyecto-39eb7.appspot.com",
-	messagingSenderId: "356288809556"
+    apiKey: "AIzaSyByyIfhuIL9e0tvhwUqkGCWKcGBTGGBLO0",
+    authDomain: "prueba-urgente.firebaseapp.com",
+    databaseURL: "https://prueba-urgente.firebaseio.com",
+    storageBucket: "prueba-urgente.appspot.com",
+    messagingSenderId: "483313675253"
+  };
+
+/*
+var config = {
+  apiKey: "AIzaSyBxrNMp2TQU8y72jkRRGLSdJq2-2N3jNRw",
+  authDomain: "prueba-proyecto-39eb7.firebaseapp.com",
+  databaseURL: "https://prueba-proyecto-39eb7.firebaseio.com",
+  storageBucket: "prueba-proyecto-39eb7.appspot.com",
+  messagingSenderId: "356288809556"
 };
+*/
+
 firebase.initializeApp(config);
+
+
+
+ //ON LOGIN OR LOGOUT ========================================================================================
+  firebase.auth().onAuthStateChanged(function(user) {
+      if (user)
+      {
+        console.log("hay usuario");
+      } 
+      else 
+      {
+        //window.location.href = ("http://practicasdeverano.itam.mx/");
+      window.location.href = ("./empresa.html");
+    
+      }
+  });
+
+
 
 $(document).ready(function(){
 
 
-  //buttons
-  const btnLogOut = document.getElementById("btnLogOut");
+  //lOG OUT PROCESS =========================================================================
+    $("#btnLogOut").click(function(){
+      firebase.auth().signOut()
+      .then(function(){
+          //window.location.href = ("http://practicasdeverano.itam.mx/");
+          window.location.href = ("./empresa.html");
+      },function(error){
+          console.log(error.errorMessage);
+      });
+    });
 
-
-  /*lOG OUT PROCESS*/
-  btnLogOut.addEventListener("click", function(){
-        firebase.auth().signOut().then(function() {
-          console.log("Sign-out successful");
-
-        }, function(error) {
-          console.log("An error happened.");
-          alert(error.message);
-        });
-  });
-
-   /*Return PROCESS*/
-  btnRegresar.addEventListener("click", function(){
-        regresar();
-  });
-
-   /*New proyect PROCESS*/
-  btnFormulario.addEventListener("click", function(){
-        var nom = document.getElementById("txtNombreProyecto").value;
-        var des = document.getElementById("txtDescripcion").value;
-        var are = document.getElementById("txtArea").value;
-        var per = document.getElementById("txtPerfil").value;
-        var vac = document.getElementById("txtVacantes").value;
-        var sue = document.getElementById("txtSueldo").value;
-        var dir = document.getElementById("txtDireccion").value;
-
-        llenaProyecto(nom,des,are,per,vac,sue,dir);
-  });
-
+  
+   
 });

@@ -1,12 +1,24 @@
 
 // Initialize Firebase
 var config = {
-	apiKey: "AIzaSyBxrNMp2TQU8y72jkRRGLSdJq2-2N3jNRw",
-	authDomain: "prueba-proyecto-39eb7.firebaseapp.com",
-	databaseURL: "https://prueba-proyecto-39eb7.firebaseio.com",
-	storageBucket: "prueba-proyecto-39eb7.appspot.com",
-	messagingSenderId: "356288809556"
+    apiKey: "AIzaSyByyIfhuIL9e0tvhwUqkGCWKcGBTGGBLO0",
+    authDomain: "prueba-urgente.firebaseapp.com",
+    databaseURL: "https://prueba-urgente.firebaseio.com",
+    storageBucket: "prueba-urgente.appspot.com",
+    messagingSenderId: "483313675253"
+  };
+
+
+/*
+var config = {
+  apiKey: "AIzaSyBxrNMp2TQU8y72jkRRGLSdJq2-2N3jNRw",
+  authDomain: "prueba-proyecto-39eb7.firebaseapp.com",
+  databaseURL: "https://prueba-proyecto-39eb7.firebaseio.com",
+  storageBucket: "prueba-proyecto-39eb7.appspot.com",
+  messagingSenderId: "356288809556"
 };
+*/
+
 firebase.initializeApp(config);
 /*
 var config = {
@@ -18,496 +30,389 @@ var config = {
   };
   */
 
-  var num=0;
-  var idiomaYnivel = [];
-  var idiomas;
-  var car;
 
 
-  $(document).ready(function(){
+
+// GLOBAL FUNCTIONS ============================================================================
+//==============================================================================================
+      
 
 
-    /*lOG OUT PROCESS*/
-    btnLogOut.addEventListener("click", function(){
-      firebase.auth().signOut().then(function()
+
+// ON CHANGE CARRERA ===================================================================================
+function displayCarrera(){
+  
+        
+    /*
+    var licenciaturas = ['Actuaría','Administración','Ciencia Política','Contaduría Pública y Estrategia Financiera',
+    'Derecho','Dirección Financiera','Economía','Matemáticas Aplicadas','Relaciones Internacionales','Ingeniería en Computación',
+    'Ingeniería en Mecatrónica','Ingeniería en Negocios','Ingeniería en Telecomunicaciones','Ingeniería en Telemática',
+    'Ingeniería Industrial'];
+    */
+
+    var licenciaturas = ['Administración','Contaduría Pública y Estrategia Financiera',
+    'Dirección Financiera','Ingeniería en Computación',
+    'Ingeniería en Mecatrónica','Ingeniería en Negocios','Ingeniería en Telecomunicaciones','Ingeniería en Telemática',
+    'Ingeniería Industrial'];
+    
+
+        
+    /*
+    var planesConjuntos = ['Administración y Actuaría','Actuaría y Dirección Financiera','Actuaría y Matemáticas Aplicadas',
+    'Administración y Contaduría Pública y Estrategia Financiera','Administración y Dirección Financiera','Administración y Relaciones Internacionales',
+    'Administración e Ing. en Computación','Administración e Ing. Industrial','Contaduría Pública y Actuaría','Contaduría Pública y Derecho',
+    'Contaduría Pública y Dirección Financiera','Contaduría Pública e Ing. Industrial','Derecho y Ciencia Política','Derecho y Relaciones Internacionales',
+    'Economía y Administración','Economía y Ciencia Política','Economía y Derecho','Economía y Dirección Financiera','Economía y Matemáticas Aplicadas',
+    'Economía y Relaciones Internacionales','Economía e Ing. en Negocios','Relaciones Internacionales y Ciencia Política','Ing. en Computación y Matemáticas Aplicadas',
+    'Ing. en Computación e Ing. Industrial','Ing. en Mecatrónica e Ing. en Computación','Ing. en Mecatrónica e Ing. Industrial','Ing. en Negocios y Administración',
+    'Ing. en Negocios y Dirección Financiera','Ing. en Negocios e Ing. en Computación','Ing. en Negocios e Ing. Industrial','Ing. en Negocios e Ing. en Telecomunicaciones',
+    'Ing. en Telecomunicaciones e Ing. en Computación','Ing. en Telecomunicaciones e Ing. en Mecatrónica','Ing. en Telecomunicaciones y Matemáticas Aplicadas'];
+    */
+    
+    var planesConjuntos = ['Administración y Actuaría','Actuaría y Dirección Financiera',
+    'Administración y Contaduría Pública y Estrategia Financiera','Administración y Dirección Financiera','Administración y Relaciones Internacionales',
+    'Administración e Ing. en Computación','Administración e Ing. Industrial','Contaduría Pública y Actuaría','Contaduría Pública y Derecho',
+    'Contaduría Pública y Dirección Financiera','Contaduría Pública e Ing. Industrial',
+    'Economía y Administración','Economía y Dirección Financiera',
+    'Economía e Ing. en Negocios','Ing. en Computación y Matemáticas Aplicadas',
+    'Ing. en Computación e Ing. Industrial','Ing. en Mecatrónica e Ing. en Computación','Ing. en Mecatrónica e Ing. Industrial','Ing. en Negocios y Administración',
+    'Ing. en Negocios y Dirección Financiera','Ing. en Negocios e Ing. en Computación','Ing. en Negocios e Ing. Industrial','Ing. en Negocios e Ing. en Telecomunicaciones',
+    'Ing. en Telecomunicaciones e Ing. en Computación','Ing. en Telecomunicaciones e Ing. en Mecatrónica','Ing. en Telecomunicaciones y Matemáticas Aplicadas'];
+
+  //Display Licenciaturas  
+  if($("#licenciatura").is(':checked'))
+  {  
+    $("#Carrera").empty();
+    $("#Carrera").append('<select class="w3-select" data-placeholder="Choose a Carrer..." id ="Career" > </select>')
+    licenciaturas.forEach(function(item,index){
+      $("#Career").append('<option class="valorOption'+index+'">'+item+'</option>');
+    });
+  }
+  //Display Planes Conjuntos
+  if($("#planConjunto").is(':checked'))
+  {  
+    $("#Carrera").empty();
+    $("#Carrera").append('<select class="w3-select" data-placeholder="Choose a Joint plan..." id ="Career" > </select>')
+    planesConjuntos.forEach(function(item,index){
+      $("#Career").append('<option class="valorOption'+index+'">'+item+'</option>');
+    });
+  }
+};
+
+// ON CHANGE IDIOMA ======================================================================================
+function displayIdioma(){
+  var strIdioma = $("#selectAlumIdiomas :selected").text().trim();
+  $("#txtIdiomaNivel").append('<p><span class="w3-closebtn w3-left" onClick="remueveme(this)">&times;</span><select class="w3-select idiomas" data-placeholder="Choose a Level..." id="'+strIdioma+'" required><option class="valorOption1" selected>Basico</option><option class="valorOption2">Intermedio</option><option class="valorOption3">Avanzado</option></select> <label class="w3-label w3-validate">Nivel de '+strIdioma+'</label></p>');
+};
+
+// ON REMOVE IDIOMA ======================================================================================
+function remueveme(element){
+  padre = $(element).parent();
+  padre.remove($(element).attr("id"));
+}
+
+// ON FINISHED FORM ======================================================================================
+function idiomas(){
+  // CREATE IDIOMAS ARRAY
+  var res = "";
+  var idiomas = $("select[class~='idiomas']");
+  
+  
+  for (i = 0; i < idiomas.length;i++){
+    var id  = $(idiomas[i]).attr("id");
+    var lvl = $("#"+ id +" option:selected").text();
+    var str = id+","+lvl+";";
+    res += str;
+  }
+    var nom = $("#txtAlumNom").val();
+    var cU = $("#txtAlumCU").val();
+    var tel = $("#txtAlumTel").val();
+    var semestre = $("#txtAlumSem").val();
+    var interes = $("#txtAlumInteres1").val();
+    var interes2 = $("#txtAlumInteres2").val();
+    var interes3 = $("#txtAlumInteres3").val();
+    var areaInteres = $("#txtAlumArea1").val();
+    var areaInteres2 = $("#txtAlumArea2").val();
+    var areaInteres3 = $("#txtAlumArea3").val();
+    var car = $("#Career option:selected").val();
+
+    llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaInteres2, interes3,areaInteres3, res);
+
+  
+};
+
+// ON LLENAR ALUMNO =======================================================================================
+
+function llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaInteres2, interes3,areaInteres3, idiomas){
+
+  var res = false;
+  var nombre;
+  var claveU;
+  var telefono;
+  var carrera;
+  var semestreAprox;
+  var empresaInteres;
+  var alumArea1;
+  var empresaInteres2;
+  var alumArea2;
+  var empresaInteres3;
+  var alumArea3;
+  var idiom;
+
+    // nombre alumno
+    if(nom.trim())
+    {
+      nombre = nom;
+      res = true;
+    }
+    else
+    { 
+      $("#txtErrorAlumNom").text("Nombre del alumno invalido");
+      res = false;
+    }
+    //Clave unica
+    if(cU.trim())
+    {
+      claveU = cU;
+      res = true == res;
+    }
+    else
+    {
+      $("#txtErrorAlumCU").text("Clave unica invalida");
+      res = false;
+    }
+    //número de alumno
+    if(tel.trim())
+    {
+      telefono = tel;
+      res = true == res;
+    }
+    else
+    {
+      $("#txtErrorAlumTel").text("Ingresa un número valido, solo números");
+      res = false;
+    }
+    //carrera
+    if(car.trim())
+    {
+      carrera = car;
+      res = true == res;
+    }
+    else
+    {
+      $("#txtErrorAlumCarrera").text("Seleciona una carrera");
+      res = false;
+    }
+    //semestre aproximado
+    if(semestre >= 5 && semestre.trim())
+    {
+      semestreAprox =semestre;
+      res = true == res;
+    }
+    else
+    {
+      $("#txtErrorAlumSem").text("Ingresa un semestre mayor a 5");
+      res = false;
+    }
+    //Empresa interes
+    if(interes.trim())
+    {
+      empresaInteres =interes;
+      res = true == res;
+    }
+    else
+    {
+      $("#txtErrorAlumInteres").text("Ingresa tu empresa de interes");
+      res = false;
+    }
+    if(areaInteres.trim())
+    {
+      alumArea1 =areaInteres;
+      res = true == res;
+    }
+    else
+    {
+      $("#txtErrorAlumArea").text("Ingresa tu Area de interes");
+      res = false;
+    }
+    if(interes2.trim())
+    {
+      empresaInteres2 =interes2;
+      res = true == res;
+    }
+    else
+    {
+      $("#txtErrorAlumInteres2").text("Ingresa tu empresa de interes");
+      res = false;
+    }
+    if(areaInteres2.trim())
+    {
+    alumArea2 =areaInteres2;
+      res = true == res;
+    }
+    else
+    {
+      $("#txtErrorAlumArea2").text("Ingresa tu Area de interes");
+      res = false;
+    }
+    if(interes3.trim())
+    {
+      empresaInteres3 =interes3;
+      res = true == res;
+    }
+    else
+    {
+      $("#txtErrorAlumInteres3").text("Ingresa tu empresa de interes");
+      res = false;
+    }
+    if(areaInteres3.trim())
+    {
+    alumArea3 =areaInteres3;
+      res = true == res;
+    }
+    else
+    {
+      if(res){$("#txtErrorAlumArea3").text("Ingresa tu empresa de interes");}
+      res = false;
+    }
+     // Idiomas
+    if(idiomas.trim() && idiomas.indexOf("English") != -1 && idiomas.indexOf("Spanish") != -1)
+    {
+      idiom = idiomas;
+      res = true == res;
+    }
+    else
+    {
+      $("#txtErrorAlumIdiomas").text("Se necesitan Ingles y Español para proceder");
+      res = false;
+    }
+
+
+    if(res)
+    {
+      var uid = firebase.auth().currentUser.uid;
+      var email = firebase.auth().currentUser.email;
+      var urlAlum = "/alumnos/" + uid + "/";
+      var urlUsers = "/users/" + uid + "/";
+      
+
+      firebase.auth().currentUser.updateProfile({
+        displayName: nombre
+      }).then(function() {
+      // Update successful.
+      firebase.database().ref(urlAlum).set({
+        Nombre: nombre,
+        Email : email,
+        CU: claveU,
+        Telefono: telefono,
+        Carrera: carrera,
+        Semestre: semestre,
+        Empresa1: empresaInteres,
+        AreaInteres1: alumArea1,
+        Empresa2: empresaInteres2,
+        AreaInteres2: alumArea2,
+        Empresa3: empresaInteres3,
+        AreaInteres3: alumArea3,
+        Idiomas: idiom
+      }).then(function(){
+       firebase.database().ref(urlUsers).set({
+        Tipo : "Alumno",
+        Registro : "true",
+        Nombre : nombre,
+        CV : "false"
+      }).then(function(){
+        firebase.auth().currentUser.sendEmailVerification().then(function(){
+         //window.location.href = ("http://practicasdeverano.itam.mx/html/verificacion.html");
+         window.location.href = ("./verificacion.html");
+       })
+      })
+    })
+    }, function(error) {
+      // An error happened.
+      console.log(error.message);
+    });
+
+    }
+
+};
+  
+
+    //ON LOGIN OR LOGOUT =============================================================
+  firebase.auth().onAuthStateChanged(function(user) {
+      if (user)
+      { 
+        if(firebase.auth().currentUser.emailVerified)
+        {
+          //window.location.replace("http://practicasdeverano.itam.mx/html/homeAlumno.html");
+          window.location.href = ("./homeAlumno.html");
+        }
+        else
+        {
+          var userId = firebase.auth().currentUser.uid;
+          
+            firebase.database().ref("/users/"+userId).once('value', function(snapshot) {
+            var exists = (snapshot.val() !== null);
+            if(exists)
+            {   
+              //check if user has filled form
+              var form = false;
+              var a = snapshot.val().Registro;
+              form = a;   
+              if(form)
+              {
+                //window.location.href = ("http://practicasdeverano.itam.mx/html/verificacion.html");
+                window.location.href = ("./verificacion.html");
+              }
+            }
+            else
+            {
+              //user has not filled form
+              //window.location.href = ("http://practicasdeverano.itam.mx/html/mainAlumno.html");
+              //window.location.href = ("./mainAlumno.html");
+            }
+          });
+        }
+      } 
+      else 
       {
-        console.log("Sign Out!");
-        const location = (window.location.href);
-        const last = (window.location.href).lastIndexOf("/html");
-        window.location.replace(location.substr(0,last) + "/index.html");
-      }, function(error)
-      {
-        console.log(" ========== Coud not Sign Out! ==========");
-        // An error happened.
+             
+        //window.location.replace("http://practicasdeverano.itam.mx/");
+          window.location.href = ("../index.html");
+          
+      }
+  });
+  
+// GLOBAL FUNCTIONS  END ============================================================================
+//===================================================================================================
+    
+
+    $(document).ready(function(){
+
+
+    //lOG OUT PROCESS =========================================================================
+    $("#btnLogOut").click(function(){
+      firebase.auth().signOut()
+      .then(function(){
+          //window.location.href = ("http://practicasdeverano.itam.mx/");
+          window.location.href = ("../");
+      },function(error){
+          console.log(error.errorMessage);
       });
     });
 
-
-    
-
-    const btnFormulario = document.getElementById("btnFormulario");
-
-    //text
-    const txtAlumNom = document.getElementById("txtAlumNom");
-    const txtAlumCU = document.getElementById("txtAlumCU");
-    const txtAlumTel = document.getElementById("txtAlumTel");
-    const txtAlumSem = document.getElementById("txtAlumSem");
-
-    const txtAlumInteres1 = document.getElementById("txtAlumInteres1");
-    const txtAlumInteres2 = document.getElementById("txtAlumInteres2");
-    const txtAlumInteres3 = document.getElementById("txtAlumInteres3");
-
-    const txtAlumArea1 = document.getElementById("txtAlumArea1");
-    const txtAlumArea2 = document.getElementById("txtAlumArea2");
-    const txtAlumArea3 = document.getElementById("txtAlumArea3");
-
-    btnFormulario.addEventListener("click",function(){
-      const nom = txtAlumNom.value;
-      const cU = txtAlumCU.value;
-      const tel = txtAlumTel.value;
-      const semestre = txtAlumSem.value;
-      const interes = txtAlumInteres1.value;
-      const interes2 = txtAlumInteres2.value;
-      const interes3 = txtAlumInteres3.value;
-      
-      const areaInteres = txtAlumArea1.value;
-      const areaInteres2 = txtAlumArea2.value;
-      const areaInteres3 = txtAlumArea3.value;
-
-      llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaInteres2, interes3,areaInteres3, idiomas);
+    $("#btnCancelar").click(function(){
+      firebase.auth().signOut()
+      .then(function(){
+          //window.location.href = ("http://practicasdeverano.itam.mx/");
+          window.location.href = ("../");
+      },function(error){
+          console.log(error.errorMessage);
+      });
     });
 
-  });
-
-  function idiomas(){
-   var selectUso = document.querySelectorAll("select");
-   var largoUso = selectUso.length-2;
-  
-   for (var i =0 ; i <largoUso; i++) {  
-      
-    var varIdioma =document.getElementById("lbNivel"+i).innerText;
-    var varNivel =document.getElementById("requiredNivel"+i);
-    var textNivel= varNivel.options[varNivel.selectedIndex].text;        
-    idiomaYnivel.push(varIdioma.substr(8, 20)+": " + textNivel);
-  }
-  
-  var arrayLength = idiomaYnivel.length;
-  idiomas=idiomaYnivel.join();
-
-  if (document.getElementById("Career")) {            
-    var carrera = document.getElementById("Career").selectedIndex;
-    car=document.getElementsByTagName("option")[carrera].value;           
-  }else if(document.getElementById("JointPlan")){
-    var jointPlan = document.getElementById("JointPlan").selectedIndex;
-    car=document.getElementsByTagName("option")[jointPlan].value;
-  } 
- 
-}
+});
 
 
-function displayIdioma() {
-  var strIdioma = $("#selectAlumIdiomas :selected").text();
-  var btn = document.createTextNode(strIdioma);
-  var btn2 ="";
-  if (btn!=btn2) {
-
-    function more(length, chars) {
-      var result = '';
-      for (var i = length; i > 0; --i) 
-        result += chars[Math.round(Math.random())];
-      return result;
-    }
-
-    var id = num++
-
-    var btn2 = btn
-
-        //CREA PLACEHOLDER
-        var node = document.createElement("SELECT");               
-        var att = document.createAttribute("class");       
-        att.value = "w3-select";
-        node.setAttributeNode(att);
-        var att = document.createAttribute("data-placeholder");       
-        att.value = "Choose a Level...";
-        node.setAttributeNode(att);
-        var att = document.createAttribute("id");       
-        att.value = "requiredNivel" + id;
-        var requieredNivel = "requiredNivel" + id;
-        node.setAttributeNode(att);                            
-        document.getElementById("txtIdiomaNivel").appendChild(node);
-
-        //Crea options
-        var option1 = document.createElement("Option");        
-        var att1 = document.createAttribute("class");       
-        att1.value = "valorOption1";
-        option1.setAttributeNode(att1);
-        option1.text = "Basico";
-        var x = document.getElementById(requieredNivel);
-        x.add(option1);
-
-        var option2 = document.createElement("Option");
-        var att2 = document.createAttribute("class");       
-        att2.value = "valorOption2";
-        option2.setAttributeNode(att2);
-        option2.text = "Intermedio";
-        x.add(option2);
-
-        var option3 = document.createElement("Option");
-        var att3 = document.createAttribute("class");       
-        att3.value = "valorOption3";
-        option3.setAttributeNode(att3);
-        option3.text = "Avanzado";
-        x.add(option3);
 
 
-        var node = document.createElement("LABEL");               
-        var att = document.createAttribute("class");       
-        att.value = "w3-label w3-validate";
-        node.setAttributeNode(att);
-        var att = document.createAttribute("id");
-        att.value = "lbNivel" + id;
-        var nivel = "lbNivel" + id;
-        node.setAttributeNode(att);
-        
-        document.getElementById("txtIdiomaNivel").appendChild(node);    
-        document.getElementById(nivel).innerHTML = "Nivel de " + strIdioma;
-        document.getElementById("requiredNivel" + id).required = true;
-      }
-    }
 
-    function displayCarrera() {
-      if(document.getElementById('licenciatura').checked) {
-        if (document.getElementById("JointPlan")) {            
-          var elem2 = document.getElementById("JointPlan");
-          elem2.parentNode.removeChild(elem2);            
-        }
-        var node = document.createElement("SELECT");               
-        var att = document.createAttribute("class");       
-        att.value = "w3-select";
-        node.setAttributeNode(att);
-        var att = document.createAttribute("data-placeholder");       
-        att.value = "Choose a Career...";
-        node.setAttributeNode(att);
-        var att = document.createAttribute("id");       
-        att.value = "Career";
-        var Career = "Career";
-        node.setAttributeNode(att);                            
-        document.getElementById("Carrera").appendChild(node);
-
-          //Crea options
-          var option01 = document.createElement("Option");        
-          var att01 = document.createAttribute("class");       
-          att01.value = "valorOption01";
-          option01.setAttributeNode(att01);
-          option01.text = "Administracion";
-          var x = document.getElementById(Career);
-          x.add(option01);
-
-          var option02 = document.createElement("Option");
-          var att02 = document.createAttribute("class");       
-          att02.value = "valorOption02";
-          option02.setAttributeNode(att02);
-          option02.text = "Contaduría Pública y Estrategia Financiera";
-          x.add(option02);
-
-          var option03 = document.createElement("Option");
-          var att03 = document.createAttribute("class");       
-          att03.value = "valorOption03";
-          option03.setAttributeNode(att03);
-          option03.text = "Dirección Financiera";
-          x.add(option03);
-
-          var option04 = document.createElement("Option");
-          var att04 = document.createAttribute("class");       
-          att04.value = "valorOption04";
-          option04.setAttributeNode(att04);
-          option04.text = "Ingeniería en Negocios";
-          x.add(option04);
-
-          var option05 = document.createElement("Option");
-          var att05 = document.createAttribute("class");       
-          att05.value = "valorOption05";
-          option05.setAttributeNode(att05);
-          option05.text = "Ingeniería en Computación";
-          x.add(option05);
-
-          var option06 = document.createElement("Option");
-          var att06 = document.createAttribute("class");       
-          att06.value = "valorOption06";
-          option06.setAttributeNode(att06);
-          option06.text = "Ingeniería Industrial";
-          x.add(option06);
-
-          var option07 = document.createElement("Option");
-          var att07 = document.createAttribute("class");       
-          att07.value = "valorOption07";
-          option07.setAttributeNode(att07);
-          option07.text = "Ingeniería en Mecatrónica";
-          x.add(option07);
-
-          var option08 = document.createElement("Option");
-          var att08 = document.createAttribute("class");       
-          att08.value = "valorOption08";
-          option08.setAttributeNode(att08);
-          option08.text = "Ingeniería en Telecomunicaciones";
-          x.add(option08);
-
-        }else if(document.getElementById('planConjunto').checked) {
-          if (document.getElementById("Career")) {            
-            var elem2 = document.getElementById("Career");
-            elem2.parentNode.removeChild(elem2);            
-          }
-          var node = document.createElement("SELECT");               
-          var att = document.createAttribute("class");       
-          att.value = "w3-select";
-          node.setAttributeNode(att);
-          var att = document.createAttribute("data-placeholder");       
-          att.value = "Choose a Joint plan...";
-          node.setAttributeNode(att);
-          var att = document.createAttribute("id");       
-          att.value = "JointPlan";
-          var JointPlan = "JointPlan";
-          node.setAttributeNode(att);                            
-          document.getElementById("Carrera").appendChild(node);
-
-          //Crea options
-          var option1 = document.createElement("Option");        
-          var att1 = document.createAttribute("class");       
-          att1.value = "valorOption1";
-          option1.setAttributeNode(att1);
-          option1.text = "Administracion y Actuaría";
-          var x = document.getElementById(JointPlan);
-          x.add(option1);
-
-          var option2 = document.createElement("Option");
-          var att2 = document.createAttribute("class");       
-          att2.value = "valorOption2";
-          option2.setAttributeNode(att2);
-          option2.text = "Actuaría y Dirección Financiera";
-          x.add(option2);
-
-          var option3 = document.createElement("Option");
-          var att3 = document.createAttribute("class");       
-          att3.value = "valorOption3";
-          option3.setAttributeNode(att3);
-          option3.text = "Actuaría y Matemáticas Aplicadas";
-          x.add(option3);
-
-          var option4 = document.createElement("Option");
-          var att4 = document.createAttribute("class");       
-          att4.value = "valorOption4";
-          option4.setAttributeNode(att4);
-          option4.text = "Administracion y Contaduría Pública y Estrategia Financiera";
-          x.add(option4);
-
-          var option5 = document.createElement("Option");
-          var att5 = document.createAttribute("class");       
-          att5.value = "valorOption5";
-          option5.setAttributeNode(att5);
-          option5.text = "Administracion Dirección Financiera";
-          x.add(option5);
-
-          var option6 = document.createElement("Option");
-          var att6 = document.createAttribute("class");       
-          att6.value = "valorOption6";
-          option6.setAttributeNode(att6);
-          option6.text = "Administracion y Relaciones Internacionales";
-          x.add(option6);
-
-          var option7 = document.createElement("Option");
-          var att7 = document.createAttribute("class");       
-          att7.value = "valorOption7";
-          option7.setAttributeNode(att7);
-          option7.text = "Administracion e Ingeniería en Computación";
-          x.add(option7);
-
-          var option8 = document.createElement("Option");
-          var att8 = document.createAttribute("class");       
-          att8.value = "valorOption8";
-          option8.setAttributeNode(att8);
-          option8.text = "Administracion e Ingeniería Industrial";
-          x.add(option8);
-
-          var option9 = document.createElement("Option");
-          var att9 = document.createAttribute("class");       
-          att9.value = "valorOption9";
-          option9.setAttributeNode(att9);
-          option9.text = "Contaduría Pública y Actuaría";
-          x.add(option9);
-
-          var option10 = document.createElement("Option");
-          var att10 = document.createAttribute("class");       
-          att10.value = "valorOption10";
-          option10.setAttributeNode(att10);
-          option10.text = "Contaduría y Derecho";
-          x.add(option10);
-
-          var option11 = document.createElement("Option");
-          var att11 = document.createAttribute("class");       
-          att11.value = "valorOption11";
-          option11.setAttributeNode(att11);
-          option11.text = "Contaduría Pública y Dirección Financiera";
-          x.add(option11);
-
-          var option12 = document.createElement("Option");
-          var att12 = document.createAttribute("class");       
-          att12.value = "valorOption12";
-          option12.setAttributeNode(att12);
-          option12.text = "Contaduría Pública e Ingeniería Industrial";
-          x.add(option12);
-
-          var option13 = document.createElement("Option");
-          var att13 = document.createAttribute("class");       
-          att13.value = "valorOption13";
-          option13.setAttributeNode(att13);
-          option13.text = "Derecho y Ciencia Política";
-          x.add(option13);
-
-          var option14 = document.createElement("Option");
-          var att14 = document.createAttribute("class");       
-          att14.value = "valorOption14";
-          option14.setAttributeNode(att14);
-          option14.text = "Derecho Y Relaciones Internacionales";
-          x.add(option14);
-
-          var option15 = document.createElement("Option");
-          var att15 = document.createAttribute("class");       
-          att15.value = "valorOption15";
-          option15.setAttributeNode(att15);
-          option15.text = "Economía y Administracion";
-          x.add(option15);
-
-          var option16 = document.createElement("Option");
-          var att16 = document.createAttribute("class");       
-          att16.value = "valorOption16";
-          option16.setAttributeNode(att16);
-          option16.text = "Economía y Ciencia Política";
-          x.add(option16);
-
-          var option17 = document.createElement("Option");
-          var att17 = document.createAttribute("class");       
-          att17.value = "valorOption17";
-          option17.setAttributeNode(att17);
-          option17.text = "Economía y Derecho";
-          x.add(option17);
-
-          var option18 = document.createElement("Option");
-          var att18 = document.createAttribute("class");       
-          att18.value = "valorOption18";
-          option18.setAttributeNode(att18);
-          option18.text = "Economía y Dirección Financiera";
-          x.add(option18);
-
-          var option19 = document.createElement("Option");
-          var att19 = document.createAttribute("class");       
-          att19.value = "valorOption19";
-          option19.setAttributeNode(att19);
-          option19.text = "Economía y Matemáticas Aplicadas";
-          x.add(option19);
-
-          var option20 = document.createElement("Option");
-          var att20 = document.createAttribute("class");       
-          att20.value = "valorOption20";
-          option20.setAttributeNode(att20);
-          option20.text = "Economía y Relaciones Internacionales";
-          x.add(option20);
-
-          var option21 = document.createElement("Option");
-          var att21 = document.createAttribute("class");       
-          att21.value = "valorOption21";
-          option21.setAttributeNode(att21);
-          option21.text = "Economía e Ingeniería en Negocios";
-          x.add(option21);
-
-          var option22 = document.createElement("Option");
-          var att22 = document.createAttribute("class");       
-          att22.value = "valorOption22";
-          option22.setAttributeNode(att22);
-          option22.text = "Relaciones Internacionales y Ciencia Política";
-          x.add(option22);
-
-          var option23 = document.createElement("Option");
-          var att23 = document.createAttribute("class");       
-          att23.value = "valorOption23";
-          option23.setAttributeNode(att23);
-          option23.text = "Ingeniería en Computación y Matemáticas Aplicadas";
-          x.add(option23);
-
-          var option24 = document.createElement("Option");
-          var att24 = document.createAttribute("class");       
-          att24.value = "valorOption24";
-          option24.setAttributeNode(att24);
-          option24.text = "Ingeniería en Computación e Ingeniería Industrial";
-          x.add(option24);
-
-          var option25 = document.createElement("Option");
-          var att25 = document.createAttribute("class");       
-          att25.value = "valorOption25";
-          option25.setAttributeNode(att25);
-          option25.text = "Ingeniería en Mecatrónica e Ingeniería en Computación";
-          x.add(option25);
-
-          var option26 = document.createElement("Option");
-          var att26 = document.createAttribute("class");       
-          att26.value = "valorOption26";
-          option26.setAttributeNode(att26);
-          option26.text = "Ingeniería Mecatrónica e Ingeniería Industrial";
-          x.add(option26);
-
-          var option27 = document.createElement("Option");
-          var att27 = document.createAttribute("class");       
-          att27.value = "valorOption27";
-          option27.setAttributeNode(att27);
-          option27.text = "Ingeniería en Negocios y Administracion";
-          x.add(option27);
-
-          var option28 = document.createElement("Option");
-          var att28 = document.createAttribute("class");       
-          att28.value = "valorOption28";
-          option28.setAttributeNode(att28);
-          option28.text = "Ingeniería en Negocios y Dirección Financiera";
-          x.add(option28);
-
-          var option29 = document.createElement("Option");
-          var att29 = document.createAttribute("class");       
-          att29.value = "valorOption29";
-          option29.setAttributeNode(att29);
-          option29.text = "Ingeniería Negocios e Ingeniería en Computación";
-          x.add(option29);
-
-          var option30 = document.createElement("Option");
-          var att30 = document.createAttribute("class");       
-          att30.value = "valorOption30";
-          option30.setAttributeNode(att30);
-          option30.text = "Ingeniería en Negocios e Ingeniería Industrial";
-          x.add(option30);
-
-          var option31 = document.createElement("Option");
-          var att31 = document.createAttribute("class");       
-          att31.value = "valorOption31";
-          option31.setAttributeNode(att31);
-          option31.text = "Ingeniería en Negocios e Ingeniería en Telecomunicaciones";
-          x.add(option31);
-
-          var option32 = document.createElement("Option");
-          var att32 = document.createAttribute("class");       
-          att32.value = "valorOption32";
-          option32.setAttributeNode(att32);
-          option32.text = "Ingeniería en Telecomunicaciones e Ingeniería en Computación";
-          x.add(option32);
-
-          var option33 = document.createElement("Option");
-          var att33 = document.createAttribute("class");       
-          att33.value = "valorOption33";
-          option33.setAttributeNode(att33);
-          option33.text = "Ingeniería en Telecomunicaciones e Ingeniería en  Mecatrónica";
-          x.add(option33);
-
-          var option34 = document.createElement("Option");
-          var att34 = document.createAttribute("class");       
-          att34.value = "valorOption34";
-          option34.setAttributeNode(att34);
-          option34.text = "Ingeniería en Telecomunicaciones y Matemáticas Aplicadas";
-          x.add(option34);
-        }
-      }

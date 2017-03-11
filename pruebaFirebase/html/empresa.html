@@ -50,7 +50,7 @@
 				
 				<header class="w3-container color-itam w3-row">
 				
-				<h1 class="w3-rest w3-text-white">Registro Empresas</h1>
+				<h1 class="w3-rest w3-text-white">Login Empresas</h1>
 				</header>
 
 				<div class="w3-container w3-white w3-row w3-padding">
@@ -59,15 +59,15 @@
 								Ingresa tu email y password para poder iniciar.
 						</span>
 						<p>
-							<input class="w3-input" type="email" id="txtEmailLogin" required>
-							<label class="w3-label w3-validate">Email "email@dom.com"</label>
+							<input class="w3-input" type="email" id="txtEmailLogin" placeholder="email@dominio.com" required>
+							<label class="w3-label w3-validate">Email </label>
 						</p>
 						<p>
-							<input class="w3-input" type="password" id="txtPasswordLogin" required>
-							<label class="w3-label w3-validate">Password (6+ letras, no caracteres especiales)</label>
+							<input class="w3-input" type="password" id="txtPasswordLogin" placeholder="(6+ letras, no caracteres especiales)" required>
+							<label class="w3-label w3-validate">Password </label>
 						</p>
 						<button class="w3-btn w3-green clickable w3-left" id="btnLogin">Login</button>
-						<button class="w3-btn w3-green  w3-padding w3-center w3-right"  onclick="document.getElementById('id01').style.display='block'"><p class="w3-margin-0">Registrarse</p></button>
+						<button class="w3-btn w3-green  w3-padding w3-center w3-right"  onclick="document.getElementById('id01').style.display='block'"><p class="w3-margin-0">Crear una cuenta</p></button>
 					</div>
 					<div class="w3-col l6 m6 s0 w3-center w3-hide-small">
 						<img src="../img/itam-portafolio.jpg" alt="ITAM" class="w3-image" style="width:90%;max-width:400px;margin:auto 0 auto">
@@ -96,11 +96,11 @@
 								Ingresa tu email y password para registrarte.
 						</span>
 						<p>
-							<input class="w3-input" type="email" id="txtEmail" required>
+							<input class="w3-input" type="email" id="txtEmail" placeholder="email@dominio.com" required>
 							<label class="w3-label w3-validate">Email</label>
 						</p>
 						<p>
-							<input class="w3-input" type="password" id="txtPassword" required>
+							<input class="w3-input" type="password" id="txtPassword" placeholder="(6+ letras, no caracteres especiales)" required>
 							<label class="w3-label w3-validate">Password</label>
 						</p>
 						<button class="w3-btn w3-green clickable" id="btnRegister">Registrarse</button>
@@ -122,7 +122,5 @@
 		</h3>
 	</footer>
 	<script src="../js/empresa.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="../js/functions.js" type="text/javascript" charset="utf-8" ></script>
-	
 </body>
 </html>
