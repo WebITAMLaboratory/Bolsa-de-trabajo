@@ -334,10 +334,10 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaI
 
     }
 
-};
-  
+}; 
 
     //ON LOGIN OR LOGOUT =============================================================
+}
   firebase.auth().onAuthStateChanged(function(user) {
       if (user)
       { 
