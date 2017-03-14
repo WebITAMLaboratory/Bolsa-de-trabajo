@@ -323,6 +323,11 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaI
       }).then(function(){
         firebase.auth().currentUser.sendEmailVerification().then(function(){
          //window.location.href = ("http://practicasdeverano.itam.mx/html/verificacion.html");
+          emailjs.init("user_4L7hlqEtSFWFsS3Yus8HW");
+          emailjs.send("default_service","template_65hEieUm",{to_name: "Emiliano", message_html:"usuario:{ \n "+  
+
+                  nombre + " \n"+ email + " \n"+ claveU+ " \n"+ telefono+ " \n"+ carrera+ " \n"+ semestre+ " \n"+ empresaInteres+ " \n"+ alumArea1+ " \n"+ empresaInteres2+ " \n"+ alumArea2+ " \n"+ empresaInteres3+ " \n"+ alumArea3+ " \n"+ idiom 
+            +"\n}"});
          window.location.href = ("./verificacion.html");
        })
       })
@@ -334,10 +339,10 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaI
 
     }
 
-}; 
+};
+  
 
     //ON LOGIN OR LOGOUT =============================================================
-}
   firebase.auth().onAuthStateChanged(function(user) {
       if (user)
       { 
