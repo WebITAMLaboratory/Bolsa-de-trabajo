@@ -276,14 +276,14 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaI
       res = false;
     }
      // Idiomas
-    if(idiomas.trim() && idiomas.indexOf("English") != -1 && idiomas.indexOf("Spanish") != -1)
+    if(idiomas.trim() && idiomas.indexOf("Ingles") != -1)
     {
       idiom = idiomas;
       res = true == res;
     }
     else
     {
-      $("#txtErrorAlumIdiomas").text("Se necesitan Ingles y Español para proceder");
+      $("#txtErrorAlumIdiomas").text("Se necesita Ingles para proceder");
       res = false;
     }
 
@@ -319,7 +319,8 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaI
         Tipo : "Alumno",
         Registro : "true",
         Nombre : nombre,
-        CV : "false"
+        CV : "false",
+        Proyectos:0
       }).then(function(){
         firebase.auth().currentUser.sendEmailVerification().then(function(){
          //window.location.href = ("http://practicasdeverano.itam.mx/html/verificacion.html");
@@ -327,8 +328,14 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaI
           emailjs.send("default_service","template_65hEieUm",{to_name: "Emiliano", message_html:"usuario:{ \n "+  
 
                   nombre + " \n"+ email + " \n"+ claveU+ " \n"+ telefono+ " \n"+ carrera+ " \n"+ semestre+ " \n"+ empresaInteres+ " \n"+ alumArea1+ " \n"+ empresaInteres2+ " \n"+ alumArea2+ " \n"+ empresaInteres3+ " \n"+ alumArea3+ " \n"+ idiom 
-            +"\n}"});
-         window.location.href = ("./verificacion.html");
+            +"\n}"}).then(function(response) {
+                      console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
+                      window.location.href = ("./verificacion.html");
+                    }, function(err) {
+                      console.log("FAILED. error=", err);
+                      window.location.href = ("./verificacion.html");
+                    });
+                    
        })
       })
     })

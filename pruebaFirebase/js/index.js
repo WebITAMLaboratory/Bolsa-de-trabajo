@@ -149,7 +149,7 @@ var config = {
 		  	if(firebase.auth().currentUser.emailVerified)
 		  	{
 		  		//window.location.replace("http://practicasdeverano.itam.mx/html/homeAlumno.html");
-		  		window.location.href = ("./html/homeAlumno.html");
+		  		window.location.href = ("./html/procLogin.html");
 		  	}
 		  	else
 		  	{

@@ -18,39 +18,15 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	
 </head>
-<div id="id01" class="w3-modal w3-grey" onload="shows()">
-	<div class="w3-modal-content w3-text-black">
-		<div class="w3-container">
-			<header>
-				<h2 >Curriculum</h2>
-			</header>
-
-			<form class="w3-container">
-				
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <progress value="0" max="100" id="uploader">0%</progress>
-                  <input id="fileButton" class="mdl-textfield__input" type="file" value="upload" >                  
-                </div>
-                <img src="../img/Curri.png" id="CurriImg" class="w3-image" alt="CurriculumImagen">
-
-			</form>
-
-			<button id="btnCheca" class="w3-closebtn w3-green">Ok</button>
-			<button  id="Curri" class="w3-closebtn w3-teal">Ejemplo CV</button>
-		</div>
-	</div>
-</div>
-<div id="header-main" class="w3-container w3-padding-0">
-	<header	>
-
 		<body class="w3-pale-green">
 			<div id="header-main" class="w3-container w3-padding-0">
 				<header	>
 					<ul class="w3-navbar color-itam w3-xlarge w3-margin-bottom w3-center w3-padding">
 						<img src="../img/VectPPPV17.png" alt="Practicas Profesionales De Verano 2017" class="w3-image" style="max-width:200px">
 						<p class="w3-margin-0 w3-text-white w3-border-top border-itam">
+						<button class="w3-btn w3-green w3-right w3-small" id="btnLogOut"><p class="w3-margin-0">Log Out</p></button>
 							Prácticas Profesionales De Verano 2017
-							<button class="w3-btn w3-green w3-right w3-small" id="btnLogOut"><p class="w3-margin-0">Log Out</p></button> 
+							 
 						</p>
 
 					</ul>	
@@ -61,6 +37,7 @@
 					<div class="w3-card-12">
 
 						<header class="w3-container color-itam">
+						<button class="w3-btn w3-green w3-right w3-small" id="btnRegresar"><p class="w3-margin-0">Regresar</p></button> 
 							<h4 id="nomAlumno" class="w3-text-white"></h4>
 						</header>
 
@@ -83,12 +60,7 @@
 					Creado por <a href="http://wil.itam.mx" title="wil itam">wil.itam.mx</a>
 				</h3>
 			</footer>
-			
-			<script type="text/javascript">
-				document.getElementById('id01').style.display='block';
-				document.getElementById('CurriImg').style.display='none';
-			</script>
-			<script src="../js/homeAlumno.js" type="text/javascript" charset="utf-8" ></script>
+			<script src="../js/alumnoProyecto.js" type="text/javascript" charset="utf-8" ></script>
 	<!--<script src="../js/functionsAlumno.js" type="text/javascript" charset="utf-8" ></script>
 -->
 </body>
