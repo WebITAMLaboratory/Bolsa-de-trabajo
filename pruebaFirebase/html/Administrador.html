@@ -23,8 +23,8 @@
 	<meta property="business:contact_data:country_name" content="México">
 
 	<!--links scripts-->
-	<link rel="stylesheet" href="css/w3.css">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="../css/w3.css">
+	<link rel="stylesheet" href="../css/index.css">
 	
 	<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -33,47 +33,36 @@
 	
 </head>
 <body class=" w3-container w3-margin-0 w3-padding-0 w3-pale-green">
-<div id="header-main" class="w3-container w3-padding-0">
-	
+	<div id="header-main" class="w3-container w3-padding-0">
+		<header	>
+			<ul class="w3-navbar color-itam w3-xlarge w3-margin-bottom w3-center w3-padding">
+				<img src="../img/VectPPPV17.png" alt="Practicas Profesionales De Verano 2017" class="w3-image" style="max-width:200px">
+				<p class="w3-margin-0 w3-text-white w3-border-top border-itam">
+					Prácticas Profesionales De Verano 2017
+					<button class="w3-btn w3-green w3-right w3-small" id="btnLogOut"><p class="w3-margin-0">Log Out</p></button> 
+				</p>
 
-	<header id="header">
-		<ul class="w3-navbar color-itam w3-xlarge w3-margin-bottom w3-center w3-padding">
-			<img src="img/VectPPPV17.png" alt="Practicas Profesionales De Verano 2017" class="w3-image" style="max-width:200px"> 
-			<p class="w3-margin-0 w3-text-white w3-border-top border-itam">Prácticas Profesionales De Verano 2017</p>
-		</ul>	
-	</header>
-	<!-- /header -->	
-	<main class="w3-display-container" id="main">
-			<div class="w3-container">
-			<div class="w3-card-4 w3-border w3-border-black">
-				
-				<header class="w3-container color-itam w3-row">
-				
-				<h1 class="w3-rest w3-text-white">Registro Terminado</h1>
-				</header>
-
-				<div class="w3-container w3-white w3-row w3-padding">
-					<p>
-						Gracias por participar, el periodo de registro ha concluido.
-					</p>
-				</div>
-
-				<footer class="w3-container w3-black">
-					<h5>Powered by <a href="http://wil.itam.mx" title="WIL.ITAM" alt="WIL.ITAM">WIL.itam.mx</a></h5>
-				</footer>
-			</div>
-		</div>
-		<!-- Login -->
-	</main>
-
+			</ul>	
+		</header>
+		<!-- /header -->
 	</div>
+
+	<div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--6-col-phone mdl-cell--order-2-phone IZQ">
+		<!-- VALUE  -->
+		<pre id="object">
+		</pre>
+		<!-- CHILD  -->
+		<ul id="list">
+		</ul>
+		<!--END CHILD-->
+	</div> 
+
 	<footer class="w3-container footer-grey w3-bottom w3-center w3-text-white" id="footer">
 		<h3 class=" w3-small">
 			Derechos Reservados &copy; ITAM, 2017<br>
 			Creado por <a href="http://wil.itam.mx" title="wil itam">wil.itam.mx</a>
 		</h3>
 	</footer>
-
-	
+	<script src="../js/admin.js" type="text/javascript" charset="utf-8" ></script>	
 </body>
 </html>

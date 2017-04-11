@@ -49,17 +49,64 @@
 				
 				<header class="w3-container color-itam w3-row">
 				
-				<h1 class="w3-rest w3-text-white">Registro Terminado</h1>
+				<h1 class="w3-rest w3-text-white">Login Alumnos</h1>
 				</header>
 
 				<div class="w3-container w3-white w3-row w3-padding">
-					<p>
-						Gracias por participar, el periodo de registro ha concluido.
-					</p>
+					<div class="w3-col l6 m6 s12">
+						<span class="w3-text-red" id="txtErrorLogin">
+								Ingresa tu email y password para poder iniciar.
+						</span>
+						<p>
+							<input class="w3-input" type="email" id="txtEmailLogin"  placeholder="email@itam.mx" required>
+							<label class="w3-label w3-validate">Email</label>
+						</p>
+						<p>
+							<input class="w3-input" type="password" id="txtPasswordLogin" placeholder="Mínimo 6 caracteres , no caracteres especiales" required>
+							<label class="w3-label w3-validate">Password</label>
+						</p>
+						<button class="w3-btn w3-green clickable w3-left" id="btnLogin">Login</button>
+						<button class="w3-btn w3-green  w3-padding w3-center w3-right"  onclick="document.getElementById('id01').style.display='block'"><p class="w3-margin-0">Crea una cuenta</p></button>
+					</div>
+					<div class="w3-col l6 m6 s0 w3-center w3-hide-small">
+						<img src="img/itam-portafolio.jpg" alt="ITAM" class="w3-image" style="width:90%;max-width:400px;margin:auto 0 auto">
+					</div>
 				</div>
 
 				<footer class="w3-container w3-black">
 					<h5>Powered by <a href="http://wil.itam.mx" title="WIL.ITAM" alt="WIL.ITAM">WIL.itam.mx</a></h5>
+				</footer>
+			</div>
+		</div>
+		<!-- Registro -->
+
+		<div id="id01" class="w3-modal">
+	  		<div class="w3-card-4 w3-border w3-border-black" id="login">
+				
+				<header class="w3-container color-itam w3-row">
+				<span onclick="document.getElementById('id01').style.display='none'" 
+	      class="w3-closebtn">&times;</span>
+				<h2 class="w3-rest w3-text-white">Registro</h2>
+				</header>
+
+				<div class="w3-container w3-white w3-padding">
+					<div class="">
+						<span class="w3-text-red" id="txtError">
+								Ingresa tu email y password para registrarte.
+						</span>
+						<p>
+							<input class="w3-input" type="email" id="txtEmail" placeholder="email@itam.mx" required>
+							<label class="w3-label w3-validate">Email</label>
+						</p>
+						<p>
+							<input class="w3-input" type="password" id="txtPassword" placeholder="Mínimo 6 caracteres , no caracteres especiales" required>
+							<label class="w3-label w3-validate">Password</label>
+						</p>
+						<button class="w3-btn w3-green clickable" id="btnRegister">Registrarse</button>
+					</div>
+				</div>
+				<footer class="w3-container w3-black">
+					<h4 class="w3-small">Powered by <a href="http://wil.itam.mx" title="WIL.ITAM" alt="WIL.ITAM" class="w3-small">WIL.itam.mx</a></h4>
 				</footer>
 			</div>
 		</div>
@@ -74,6 +121,7 @@
 		</h3>
 	</footer>
 
+	<script src="js/index.js" type="text/javascript" charset="utf-8" ></script>
 	
 </body>
 </html>

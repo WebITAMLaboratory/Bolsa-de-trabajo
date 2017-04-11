@@ -44,6 +44,17 @@ var config = {
 		});
 	};
 
+// ON VERIFICATION CLICK =========================================================================================
+function verificate(){
+	firebase.auth().currentUser.sendEmailVerification()
+	.then(
+		signOut()
+		)
+	.catch(function(err){
+		console.log(err.code);
+	});
+};
+
 	//ON LOGIN OR LOGOUT ============================================================================================
 	firebase.auth().onAuthStateChanged(function(user) {
 		  if (user)

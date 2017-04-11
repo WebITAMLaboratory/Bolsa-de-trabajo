@@ -333,6 +333,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaI
                       window.location.href = ("./verificacion.html");
                     }, function(err) {
                       console.log("FAILED. error=", err);
+                      console.log(err.code);
                       window.location.href = ("./verificacion.html");
                     });
                     
@@ -341,6 +342,7 @@ function llenaAlumno(nom,cU,tel,car,semestre,interes,areaInteres, interes2,areaI
     })
     }, function(error) {
       // An error happened.
+      console.log(error.code);
       console.log(error.message);
     });
 
